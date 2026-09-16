@@ -18,7 +18,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 SRC_DIR = ROOT / "branches"
-PICS_DIR = ROOT / "pics"
+PICS_NAMES = ("pic", "pics")   # כל תיקייה בשם כזה בפרויקט משמשת מאגר תמונות
 BS = chr(92)
 Q = '["' + chr(39) + ']'
 NQ = '[^"' + chr(39) + '>]'
@@ -35,13 +35,19 @@ class PicIndex:
     לא תיטען כולה לזיכרון — רק תמונות שבאמת מופיעות בדוח מקודדות.
     """
 
-    def __init__(self, directory):
+    def __init__(self, directories):
         self.paths = {}
         self.cache = {}
-        if directory.is_dir():
-            for p in directory.rglob('*'):
+        self.dirs = []
+        for d in directories:
+            if not d.is_dir():
+                continue
+            n = 0
+            for p in d.rglob('*'):
                 if p.is_file() and p.suffix.lower() in IMG_EXT:
-                    self.paths.setdefault(p.name.lower(), p)
+                    if self.paths.setdefault(p.name.lower(), p) is p:
+                        n += 1
+            self.dirs.append((d, n))
 
     def __len__(self):
         return len(self.paths)
@@ -148,11 +154,15 @@ def main():
     if not SRC_DIR.is_dir():
         raise SystemExit('לא נמצאה התיקייה branches/')
 
-    extra = PicIndex(PICS_DIR)
+    pic_dirs = sorted(d for d in ROOT.rglob('*')
+                      if d.is_dir() and d.name.lower() in PICS_NAMES
+                      and '.git' not in d.parts)
+    extra = PicIndex(pic_dirs)
     if extra:
-        print('נמצאו ' + str(len(extra)) + ' תמונות בתיקייה pics/')
+        for d, n in extra.dirs:
+            print('מאגר תמונות: ' + d.relative_to(ROOT).as_posix() + '/  (' + str(n) + ' קבצים)')
     else:
-        print('תיקיית pics/ ריקה או לא קיימת — תמונות חסרות יישארו שבורות')
+        print('לא נמצאה תיקיית pic/ או pics/ — תמונות חסרות יישארו שבורות')
 
     entries, all_missing = [], set()
     for mht in sorted(SRC_DIR.glob('*.mht')) + sorted(SRC_DIR.glob('*.mhtml')):
