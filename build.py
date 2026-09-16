@@ -12,9 +12,18 @@
 בתיקיית pics/ המקומית לפי שם הקובץ, ומוטמעות אם נמצאו.
 """
 
-import base64, email, html as htmlmod, os, re, sys
+import base64, email, html as htmlmod, io, os, re, sys
 from email import policy
 from pathlib import Path
+
+try:
+    from PIL import Image
+except ImportError:
+    Image = None      # בלי Pillow התמונות מוטמעות בגודלן המקורי
+
+MAX_EDGE = 700          # צלע מקסימלית בפיקסלים לתמונה מוטמעת
+JPEG_QUALITY = 82
+MAX_EMBED_BYTES = 40000  # קבצים קטנים מזה מוטמעים כמו שהם
 
 ROOT = Path(__file__).resolve().parent
 SRC_DIR = ROOT / "branches"
@@ -59,9 +68,37 @@ class PicIndex:
         if name not in self.cache:
             p = self.paths[name]
             ext = p.suffix.lower().lstrip('.')
-            data = base64.b64encode(p.read_bytes()).decode('ascii')
+            raw = p.read_bytes()
+            small = shrink(raw, p)
+            if small is not None:
+                raw, ext = small, 'jpg'
+            data = base64.b64encode(raw).decode('ascii')
             self.cache[name] = 'data:image/' + MIME.get(ext, ext) + ';base64,' + data
         return self.cache[name]
+
+
+def shrink(raw, path):
+    """מקטין תמונות גדולות לפני ההטמעה. מחזיר None אם אין מה לשפר.
+
+    התמונות מוצגות בדוח ב-100x50 פיקסלים, אבל הקבצים המקוריים יכולים
+    להגיע ל-300KB. בלי הקטנה עמוד אחד שוקל כ-10MB, ו-20 סניפים כ-200MB.
+    """
+    if Image is None or len(raw) <= MAX_EMBED_BYTES:
+        return None
+    try:
+        im = Image.open(io.BytesIO(raw))
+        im.load()
+    except Exception:
+        return None
+    if im.mode not in ('RGB', 'L'):
+        im = im.convert('RGB')
+    im.thumbnail((MAX_EDGE, MAX_EDGE), Image.LANCZOS)
+    buf = io.BytesIO()
+    im.save(buf, 'JPEG', quality=JPEG_QUALITY, optimize=True, progressive=True)
+    out = buf.getvalue()
+    if len(out) >= len(raw):
+        return None
+    return out
 
 
 def convert(mht_path, extra_pics):
