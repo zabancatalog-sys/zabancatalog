@@ -28,17 +28,34 @@ MIME = {'jpg': 'jpeg', 'jpeg': 'jpeg', 'svg': 'svg+xml', 'ico': 'x-icon',
         'gif': 'gif', 'png': 'png', 'bmp': 'bmp', 'webp': 'webp'}
 
 
-def local_pics():
-    """שם קובץ (lowercase) -> data URI, מתוך תיקיית pics/ אם קיימת."""
-    found = {}
-    if not PICS_DIR.is_dir():
-        return found
-    for p in PICS_DIR.rglob('*'):
-        if p.is_file() and p.suffix.lower() in IMG_EXT:
+class PicIndex:
+    """מפתח שם קובץ -> נתיב בתיקיית pics/, וממיר ל-data URI רק לפי דרישה.
+
+    האינדוקס לא קורא את הקבצים, כדי שתיקיית pics ענקית (עשרות אלפי תמונות)
+    לא תיטען כולה לזיכרון — רק תמונות שבאמת מופיעות בדוח מקודדות.
+    """
+
+    def __init__(self, directory):
+        self.paths = {}
+        self.cache = {}
+        if directory.is_dir():
+            for p in directory.rglob('*'):
+                if p.is_file() and p.suffix.lower() in IMG_EXT:
+                    self.paths.setdefault(p.name.lower(), p)
+
+    def __len__(self):
+        return len(self.paths)
+
+    def __contains__(self, name):
+        return name in self.paths
+
+    def uri(self, name):
+        if name not in self.cache:
+            p = self.paths[name]
             ext = p.suffix.lower().lstrip('.')
             data = base64.b64encode(p.read_bytes()).decode('ascii')
-            found[p.name.lower()] = 'data:image/' + MIME.get(ext, ext) + ';base64,' + data
-    return found
+            self.cache[name] = 'data:image/' + MIME.get(ext, ext) + ';base64,' + data
+        return self.cache[name]
 
 
 def convert(mht_path, extra_pics):
@@ -95,7 +112,7 @@ def convert(mht_path, extra_pics):
         if not name.endswith(IMG_EXT):
             continue
         if name in extra_pics:
-            page = inline(page, ref, extra_pics[name])
+            page = inline(page, ref, extra_pics.uri(name))
             recovered += 1
         else:
             missing.add(name)
@@ -131,7 +148,7 @@ def main():
     if not SRC_DIR.is_dir():
         raise SystemExit('לא נמצאה התיקייה branches/')
 
-    extra = local_pics()
+    extra = PicIndex(PICS_DIR)
     if extra:
         print('נמצאו ' + str(len(extra)) + ' תמונות בתיקייה pics/')
     else:
