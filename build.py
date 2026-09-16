@@ -111,7 +111,38 @@ def convert(mht_path, extra_pics):
     for loc, uri in images.items():
         page = inline(page, loc, uri)
 
-    # 2. תמונות חסרות — חיפוש בתיקיית pics/ לפי שם הקובץ
+    # 2. IE מרוקן את src של תמונות file:// ומשאיר את הנתיב רק ב-href של הקישור
+    #    העוטף. משחזרים את התמונה לתוך src, ומסירים את ה-href המת
+    #    (דפדפנים חוסמים ניווט ל-data: ברמה העליונה, אז קישור כזה חסר תועלת).
+    filled = []
+
+    def fill_from_anchor(m):
+        href, attrs = m.group(2), m.group(3)
+        name = os.path.basename(href.replace(BS, '/')).lower()
+        if name not in extra_pics:
+            return m.group(0)
+        if re.search('(?i)src\\s*=\\s*' + Q + '\\s*[^"' + chr(39) + '\\s]', attrs):
+            return m.group(0)          # כבר יש src אמיתי
+        uri = extra_pics.uri(name)
+        if re.search('(?i)src\\s*=\\s*' + Q, attrs):
+            attrs = re.sub('(?i)src\\s*=\\s*' + Q + '[^"' + chr(39) + ']*' + Q,
+                           lambda _: 'src="' + uri + '"', attrs, count=1)
+        else:
+            attrs = ' src="' + uri + '"' + attrs
+        filled.append(name)
+        # מסירים את ה-href כאן, אחרת שלב 3 יטמיע את אותה תמונה שוב בקישור
+        # והעמוד יכיל כל תמונה פעמיים
+        wrapper = re.sub('(?is)\\s*href\\s*=\\s*' + Q + re.escape(href) + Q, '', m.group(1), count=1)
+        return '<a' + wrapper + '><img' + attrs + '>'
+
+    anchor_img = re.compile(
+        '(?is)<a((?:[^>]*?)href\\s*=\\s*' + Q + '([^"' + chr(39) + ']+?\\.(?:jpg|jpeg|png|gif|bmp|webp))'
+        + Q + '(?:[^>]*?))>\\s*<img([^>]*)>')
+
+    page = anchor_img.sub(fill_from_anchor, page)
+    from_anchor = len(filled)
+
+    # 3. שאר ההפניות החסרות (רקעים ב-CSS, אייקונים) — לפי שם הקובץ
     missing, recovered = set(), 0
     for ref in re.findall('(?i)file:[^"' + chr(39) + ')>\\s]*', page):
         name = os.path.basename(ref.replace(BS, '/')).lower()
@@ -123,7 +154,7 @@ def convert(mht_path, extra_pics):
         else:
             missing.add(name)
 
-    # 3. הטמעת JS ו-CSS
+    # 4. הטמעת JS ו-CSS
     for loc, (kind, body) in texts.items():
         base = re.escape(os.path.basename(loc.replace(BS, '/')))
         if kind == 'JS':
@@ -135,7 +166,7 @@ def convert(mht_path, extra_pics):
             page = re.sub('(?is)<link[^>]*href\\s*=\\s*' + Q + '?' + NQ + '*?' + base +
                           Q + '?[^>]*>', lambda m: repl, page)
 
-    # 4. ניטרול הפניות מקומיות מתות שנשארו (פונטים ב-D:, קבצים זמניים)
+    # 5. ניטרול הפניות מקומיות מתות שנשארו (פונטים ב-D:, קבצים זמניים)
     page = re.sub('(?i)url\\(\\s*' + Q + '?file:[^)]*\\)', 'url(about:blank)', page)
     page = re.sub('(?is)<script[^>]*src\\s*=\\s*' + Q + '?file:[^>]*>\\s*</script>', '', page)
     page = re.sub('(?is)<link[^>]*(href|src)\\s*=\\s*' + Q + '?file:[^>]*>', '', page)
@@ -147,7 +178,7 @@ def convert(mht_path, extra_pics):
     m = re.search('(?is)<title[^>]*>(.*?)</title>', page)
     title = re.sub(r'\s+', ' ', htmlmod.unescape(m.group(1))).strip() if m else ''
 
-    return page, title, len(images) + recovered, sorted(missing)
+    return page, title, len(images) + recovered + from_anchor, sorted(missing)
 
 
 def main():

@@ -31,8 +31,13 @@ $content = Get-Content -LiteralPath $Html -Raw -Encoding UTF8
 # .NET במקום Split-Path: ב-PowerShell 5.1 אי אפשר לשלב -LiteralPath עם -Parent/-Leaf
 $htmlDir = [System.IO.Path]::GetDirectoryName([System.IO.Path]::GetFullPath($Html))
 
-# כל הפניה לקובץ תמונה: file:///d:/..., נתיב מלא C:\..., או נתיב יחסי
-$pattern = '(?i)(?:file:///)?[a-z]:[\\/][^"''()<>\s]+?\.(?:jpg|jpeg|png|gif|bmp|webp|ico|svg)|(?<=["''(])[^"''()<>\s:]+?\.(?:jpg|jpeg|png|gif|bmp|webp|ico|svg)'
+# כל הפניה לקובץ תמונה. IE כותב את הנתיב בשתי צורות שונות באותו קובץ:
+#   url(file:///D:/priority/...)   וגם   href="file:\\\d:\priority\..."
+# ה-lookbehind מונע התאמה שמתחילה באמצע מילה — בלעדיו "file:" עצמה
+# נקראת כאות כונן ("...fil[e:]\\\d:...") והנתיב יוצא מעוות
+$ext = '(?:jpg|jpeg|png|gif|bmp|webp|ico|svg)'
+$pattern = '(?i)(?:file:[\\/]*)?(?<![a-z0-9])[a-z]:[\\/][^"''()<>\s]+?\.' + $ext +
+           '|(?<=["''(])[^"''()<>\s:]+?\.' + $ext
 
 $refs = [regex]::Matches($content, $pattern) | ForEach-Object { $_.Value } | Sort-Object -Unique
 Write-Host "נמצאו $($refs.Count) הפניות לתמונות בקובץ" -ForegroundColor Cyan
@@ -43,9 +48,14 @@ $missing = New-Object System.Collections.Generic.List[string]
 
 foreach ($ref in $refs) {
 
-    # file:///d:/priority/... -> D:\priority\...
-    $path = $ref -replace '(?i)^file:/+', ''
-    $path = [System.Uri]::UnescapeDataString($path)
+    # file:///d:/priority/...  או  file:\\\d:\priority\...  ->  D:\priority\...
+    # חותכים מאות הכונן והלאה, בלי תלות בצורת הקידומת
+    $path = [System.Uri]::UnescapeDataString($ref)
+    if ($path -match '(?i)(?<![a-z0-9])([a-z]:[\\/].*)$') {
+        $path = $Matches[1]
+    } else {
+        $path = $path -replace '(?i)^file:[\\/]*', ''
+    }
     $path = $path -replace '/', '\'
 
     # נתיב יחסי -> ביחס לתיקיית ה-HTM
