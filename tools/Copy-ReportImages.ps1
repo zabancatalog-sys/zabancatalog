@@ -1,4 +1,4 @@
-<#
+﻿<#
     שולף מתוך דוח Priority שנשמר כ-HTM את כל הפניות התמונות,
     ומעתיק את קבצי התמונה עצמם לתיקיית יעד אחת.
 
@@ -27,7 +27,9 @@ if (-not (Test-Path -LiteralPath $Dest)) {
 }
 
 $content = Get-Content -LiteralPath $Html -Raw -Encoding UTF8
-$htmlDir = Split-Path -LiteralPath $Html -Parent
+
+# .NET במקום Split-Path: ב-PowerShell 5.1 אי אפשר לשלב -LiteralPath עם -Parent/-Leaf
+$htmlDir = [System.IO.Path]::GetDirectoryName([System.IO.Path]::GetFullPath($Html))
 
 # כל הפניה לקובץ תמונה: file:///d:/..., נתיב מלא C:\..., או נתיב יחסי
 $pattern = '(?i)(?:file:///)?[a-z]:[\\/][^"''()<>\s]+?\.(?:jpg|jpeg|png|gif|bmp|webp|ico|svg)|(?<=["''(])[^"''()<>\s:]+?\.(?:jpg|jpeg|png|gif|bmp|webp|ico|svg)'
@@ -56,7 +58,7 @@ foreach ($ref in $refs) {
         continue
     }
 
-    $target = Join-Path $Dest (Split-Path -LiteralPath $path -Leaf)
+    $target = Join-Path $Dest ([System.IO.Path]::GetFileName($path))
 
     if (Test-Path -LiteralPath $target) {
         $skipped++
