@@ -69,7 +69,7 @@ class PicIndex:
             p = self.paths[name]
             ext = p.suffix.lower().lstrip('.')
             raw = p.read_bytes()
-            small = shrink(raw, p)
+            small = shrink(raw)
             if small is not None:
                 raw, ext = small, 'jpg'
             data = base64.b64encode(raw).decode('ascii')
@@ -77,7 +77,7 @@ class PicIndex:
         return self.cache[name]
 
 
-def shrink(raw, path):
+def shrink(raw):
     """מקטין תמונות גדולות לפני ההטמעה. מחזיר None אם אין מה לשפר.
 
     התמונות מוצגות בדוח ב-100x50 פיקסלים, אבל הקבצים המקוריים יכולים
@@ -123,6 +123,9 @@ def convert(mht_path, extra_pics):
         elif ctype.startswith('image/') or low.endswith(IMG_EXT):
             guess = ctype if ctype.startswith('image/') else \
                 'image/' + MIME.get(low.rsplit('.', 1)[-1], 'png')
+            small = shrink(payload)
+            if small is not None:
+                payload, guess = small, 'image/jpeg'
             images[loc] = 'data:' + guess + ';base64,' + base64.b64encode(payload).decode('ascii')
         elif low.endswith('.js') or ctype in ('application/javascript', 'text/javascript'):
             texts[loc] = ('JS', payload.decode('utf-8', errors='replace'))
@@ -144,23 +147,37 @@ def convert(mht_path, extra_pics):
             doc = pat.sub(lambda m: m.group(1) + uri + m.group(3), doc)
         return doc
 
-    # 1. תמונות שהוטמעו בתוך ה-MHT
+    # שם קובץ -> data URI, מתוך ה-MHT עצמו או ממאגר התמונות המקומי
+    by_name = {}
     for loc, uri in images.items():
-        page = inline(page, loc, uri)
+        by_name.setdefault(os.path.basename(loc.replace(BS, '/')).lower(), uri)
 
-    # 2. IE מרוקן את src של תמונות file:// ומשאיר את הנתיב רק ב-href של הקישור
-    #    העוטף. משחזרים את התמונה לתוך src, ומסירים את ה-href המת
-    #    (דפדפנים חוסמים ניווט ל-data: ברמה העליונה, אז קישור כזה חסר תועלת).
+    def resolve(ref):
+        name = os.path.basename(ref.replace(BS, '/')).lower()
+        if name in by_name:
+            return name, by_name[name]
+        if name in extra_pics:
+            return name, extra_pics.uri(name)
+        return name, None
+
+    # 1. כל תמונה עטופה בקישור אליה עצמה. שני פורמטים:
+    #    חדש — <a href="x.jpg"><img src="x.jpg">, הקישור מיותר
+    #    ישן — <a href="file:///d:/...x.jpg"><img src="">, IE ריקן את ה-src
+    #    בשני המקרים: התמונה נכנסת ל-src וה-href מוסר. בלי זה כל תמונה
+    #    הייתה מוטמעת פעמיים והעמוד היה שוקל כפול.
     filled = []
 
     def fill_from_anchor(m):
         href, attrs = m.group(2), m.group(3)
-        name = os.path.basename(href.replace(BS, '/')).lower()
-        if name not in extra_pics:
+        name, uri = resolve(href)
+        if uri is None:
             return m.group(0)
-        if re.search('(?i)src\\s*=\\s*' + Q + '\\s*[^"' + chr(39) + '\\s]', attrs):
-            return m.group(0)          # כבר יש src אמיתי
-        uri = extra_pics.uri(name)
+        has_src = re.search('(?i)src\\s*=\\s*' + Q + '\\s*[^"' + chr(39) + '\\s]', attrs)
+        if has_src:
+            # ה-src כבר תקין — רק מסירים את ה-href הכפול
+            wrapper = re.sub('(?is)\\s*href\\s*=\\s*' + Q + re.escape(href) + Q,
+                             '', m.group(1), count=1)
+            return '<a' + wrapper + '><img' + attrs + '>'
         if re.search('(?i)src\\s*=\\s*' + Q, attrs):
             attrs = re.sub('(?i)src\\s*=\\s*' + Q + '[^"' + chr(39) + ']*' + Q,
                            lambda _: 'src="' + uri + '"', attrs, count=1)
@@ -178,6 +195,10 @@ def convert(mht_path, extra_pics):
 
     page = anchor_img.sub(fill_from_anchor, page)
     from_anchor = len(filled)
+
+    # 2. שאר התמונות שהוטמעו בתוך ה-MHT, לפי ה-Content-Location שלהן
+    for loc, uri in images.items():
+        page = inline(page, loc, uri)
 
     # 3. שאר ההפניות החסרות (רקעים ב-CSS, אייקונים) — לפי שם הקובץ
     missing, recovered = set(), 0
