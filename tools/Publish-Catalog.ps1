@@ -1,4 +1,4 @@
-﻿<#
+﻿﻿<#
     בונה את הקטלוג מדוחות Priority ודוחף ל-GitHub Pages.
     מיועד להרצה יומית מתוך מתזמן המשימות של Windows על שרת הלקוח.
 
@@ -19,8 +19,8 @@ param(
                            'D:\priority\system\images',
                            'D:\priority\system\images\coral\images',
                            'D:\priority\system\mail'),
-    [int]$MaxEdge     = 300,
-    [int]$Quality     = 75,
+    [int]$MaxEdge     = 220,
+    [int]$Quality     = 72,
     [switch]$Reindex,
     [int]$KeepLogs    = 30
 )

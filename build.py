@@ -542,9 +542,9 @@ def main():
     ap.add_argument('--src', default=str(ROOT / 'branches'), help='תיקיית הדוחות')
     ap.add_argument('--img-root', action='append', default=[],
                     help='תיקיית תמונות של Priority (אפשר לחזור על הדגל)')
-    ap.add_argument('--max-edge', type=int, default=300,
+    ap.add_argument('--max-edge', type=int, default=220,
                     help='צלע מקסימלית לתמונה. בטבלה הן מוצגות ב-100x50')
-    ap.add_argument('--quality', type=int, default=75)
+    ap.add_argument('--quality', type=int, default=72)
     ap.add_argument('--index-db', default=str(ROOT / '.imgindex.db'),
                     help='אינדקס שמות הקבצים בתיקיות התמונות')
     ap.add_argument('--reindex', action='store_true', help='לבנות את האינדקס מחדש')
