@@ -12,7 +12,7 @@ tools/Publish-Catalog.ps1 ← בונה + דוחף, להרצה יומית
 tools/Register-PublishTask.ps1 ← רושם את המשימה במתזמן
 index.html                ← תפריט הסניפים   (נוצר אוטומטית)
 666/index.html            ← עמוד הסניף      (נוצר אוטומטית)
-666/img/                  ← תמונות הסניף    (נוצר אוטומטית)
+assets/img/               ← תמונות, משותפות לכל הסניפים (נוצר אוטומטית)
 ```
 
 הכל מתחת ל-`<סניף>/` נוצר מחדש בכל בנייה — אין מה לערוך שם ידנית.
@@ -20,14 +20,16 @@ index.html                ← תפריט הסניפים   (נוצר אוטומט
 ## בנייה
 
 ```bash
-python build.py --src D:\priority\zabanCatalog
+python build.py --src D:\priority\zabanCatalog --img-root D:\priority\system\mail\Pics --img-root D:\priority\system\images
 ```
 
 | דגל | ברירת מחדל | משמעות |
 |---|---|---|
 | `--src` | `./branches` | תיקיית הדוחות |
+| `--img-root` | — | תיקיית תמונות של Priority, אפשר לחזור על הדגל |
 | `--max-edge` | `700` | צלע מקסימלית לתמונה, בפיקסלים |
 | `--quality` | `82` | איכות JPEG |
+| `--refresh-assets` | כבוי | לעבד מחדש גם תמונות שכבר קיימות |
 
 ## פורמט הדוחות
 
@@ -35,8 +37,21 @@ python build.py --src D:\priority\zabanCatalog
 נקרא ישירות, ואין בו נפיחות base64 או תמונות כפולות. שם הקובץ הוא שם הסניף:
 `666.htm` → `https://hillb65.github.io/zabanCatalog/666/`
 
-התמונות נמצאות לפי ההפניות שבתוך ה-HTML, בין אם הן יחסיות
-(`img/5004358.jpg`) או מוחלטות (`file:///d:/priority/system/mail/pics/...`).
+## איך נמצאות התמונות
+
+Priority כותב את ההפניות בשלוש צורות שונות, תלוי בגרסה ובדרך הייצוא:
+
+| צורה | דוגמה |
+|---|---|
+| כתובת HTTPS | `https://iis.zaban-bechor.co.il/click2sign/primail\pics@7851.jpg` |
+| נתיב דיסק | `file:///d:/priority/system/mail/pics/5004358.jpg` |
+| נתיב יחסי | `img/5004358.jpg` |
+
+**הבנייה מתעלמת מהצורה ומחפשת לפי שם הקובץ בלבד**, בתיקיות `--img-root`.
+לכן אותו סקריפט עובד על כל הפורמטים, ואין תלות בזמינות שרת התמונות.
+
+הפניה שלא נמצאה נשארת כמו שהיא — העמוד לא נשבר, והתמונה תיטען רק אם
+המבקר מצליח להגיע לשרת המקורי.
 
 ## מה הבנייה משנה בדוח
 

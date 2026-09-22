@@ -15,6 +15,7 @@ param(
     [string]$Source   = 'D:\priority\zabanCatalog',
     [string]$Repo     = 'D:\sites\zabanCatalog',
     [string]$LogDir   = 'D:\sites\logs',
+    [string[]]$ImgRoot = @('D:\priority\system\mail\Pics', 'D:\priority\system\images'),
     [int]$MaxEdge     = 700,
     [int]$Quality     = 82,
     [int]$KeepLogs    = 30
@@ -69,9 +70,13 @@ try {
         Invoke-Step 'git fetch' { git fetch --quiet origin }
         Invoke-Step 'git reset' { git reset --quiet --hard origin/main }
 
-        Invoke-Step 'בניית האתר' {
-            python (Join-Path $Repo 'build.py') --src $Source --max-edge $MaxEdge --quality $Quality
+        $buildArgs = @((Join-Path $Repo 'build.py'), '--src', $Source,
+                       '--max-edge', $MaxEdge, '--quality', $Quality)
+        foreach ($r in $ImgRoot) {
+            if (Test-Path -LiteralPath $r) { $buildArgs += @('--img-root', $r) }
+            else { Write-Log "תיקיית תמונות לא קיימת, מדולגת: $r" 'WARN' }
         }
+        Invoke-Step 'בניית האתר' { python @buildArgs }
 
         $dirty = git status --porcelain
         if (-not $dirty) {
