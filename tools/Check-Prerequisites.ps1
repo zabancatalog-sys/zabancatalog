@@ -65,7 +65,7 @@ if (Test-Path -LiteralPath ($Repo.TrimEnd('\') + '\.git')) {
     Say 'טוקן ב-remote' $(if ($remote -match '://[^@/]+@') { 'כן - push לא יבקש סיסמה' }
                          else { 'לא - push עלול לבקש סיסמה' }) ($remote -match '://[^@/]+@')
 } else {
-    Say 'מאגר git' "לא משוכפל. הרץ: git clone https://github.com/hillb65/zabanCatalog.git $Repo" $false
+    Say 'מאגר git' "לא משוכפל. הרץ: git clone https://github.com/zabancatalog-sys/zabancatalog.git $Repo" $false
 }
 
 Write-Host ''

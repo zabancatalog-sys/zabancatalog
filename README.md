@@ -2,7 +2,7 @@
 
 דוחות מלאי לפי סניף מ-Priority, מפורסמים כאתר סטטי ב-GitHub Pages.
 
-**האתר:** https://hillb65.github.io/zabanCatalog/
+**האתר:** https://zabancatalog-sys.github.io/zabancatalog/
 
 ## מבנה
 
@@ -35,7 +35,7 @@ python build.py --src D:\priority\zabanCatalog --img-root D:\priority\system\mai
 
 שני פורמטים נתמכים, `.mht` ו-`.htm`/`.html`. **HTML רגיל עדיף** — הוא קטן,
 נקרא ישירות, ואין בו נפיחות base64 או תמונות כפולות. שם הקובץ הוא שם הסניף:
-`666.htm` → `https://hillb65.github.io/zabanCatalog/666/`
+`666.htm` → `https://zabancatalog-sys.github.io/zabancatalog/666/`
 
 ## איך נמצאות התמונות
 
