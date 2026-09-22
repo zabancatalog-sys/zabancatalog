@@ -36,7 +36,6 @@ IMG_EXT = ('.gif', '.png', '.jpg', '.jpeg', '.svg', '.ico', '.bmp', '.webp')
 MIME = {'jpg': 'jpeg', 'jpeg': 'jpeg', 'svg': 'svg+xml', 'ico': 'x-icon',
         'gif': 'gif', 'png': 'png', 'bmp': 'bmp', 'webp': 'webp'}
 
-INLINE_MAX = 8000       # אייקונים קטנים מזה מוטמעים בעמוד
 SHRINK_OVER = 40000     # רק קבצים גדולים מזה מוקטנים
 
 EXT_GROUP = '(?:jpg|jpeg|png|gif|bmp|webp|ico|svg)'
@@ -287,7 +286,7 @@ class AssetStore:
                 self.on_disk.setdefault(os.path.splitext(p.name)[0].lower(), p.name)
         self.resolved = {}      # key -> נתיב יחסי מתוך תיקיית סניף, או data URI
         self.used = set()
-        self.added = self.reused = self.inlined = 0
+        self.added = self.reused = 0
         self.bytes = 0
 
     def _url(self, name):
@@ -322,17 +321,16 @@ class AssetStore:
             raw = small
             name = re.sub(r'\.[^.]+$', '', name) + '.jpg'
 
-        if len(raw) <= INLINE_MAX:
-            mt = MIME.get(name.rsplit('.', 1)[-1].lower(), 'png')
-            value = 'data:image/' + mt + ';base64,' + base64.b64encode(raw).decode('ascii')
-            self.inlined += 1
-        else:
-            (self.dir / name).write_bytes(raw)
-            self.on_disk[os.path.splitext(name)[0].lower()] = name
-            self.used.add(name)
-            self.added += 1
-            self.bytes += len(raw)
-            value = self._url(name)
+        # כל תמונה נכתבת כקובץ, גם אייקון של 900 בייט. הטמעה כ-data URI
+        # נראתה חסכונית, אבל היא מתבצעת בכל מופע: 14 אייקוני ממשק הופיעו
+        # 4,108 פעמים בעמוד אחד והפכו 6.8MB ל-36.8MB. קובץ חיצוני נשלח
+        # פעם אחת ונשמר במטמון הדפדפן.
+        (self.dir / name).write_bytes(raw)
+        self.on_disk[os.path.splitext(name)[0].lower()] = name
+        self.used.add(name)
+        self.added += 1
+        self.bytes += len(raw)
+        value = self._url(name)
 
         self.resolved[key] = value
         return value
@@ -591,6 +589,29 @@ def main():
             line += '  | לא נמצאו: ' + str(len(info['missing']))
         print(line)
 
+    # סניף שנמחק מתיקיית המקור — התיקייה שלו נשארת בדיסק, כי git reset
+    # לא נוגע בקבצים לא-מנוהלים. מסירים רק תיקיות שאנחנו עצמנו יצרנו
+    built = {name for name, _ in entries}
+    stale_dirs = 0
+    for d in ROOT.iterdir():
+        if not d.is_dir() or d.name in built or d.name.startswith('.'):
+            continue
+        if d.name in ('assets', 'tools', 'branches', 'pic', 'pics'):
+            continue
+        if (d / 'index.html').is_file():
+            for f in sorted(d.rglob('*'), key=lambda p: -len(p.parts)):
+                try:
+                    f.unlink() if f.is_file() else f.rmdir()
+                except OSError:
+                    pass
+            try:
+                d.rmdir()
+                stale_dirs += 1
+            except OSError:
+                pass
+    if stale_dirs:
+        print('הוסרו ' + str(stale_dirs) + ' תיקיות סניף שאינן במקור')
+
     removed = store.prune()
     (ROOT / 'index.html').write_text(build_menu(entries), encoding='utf-8')
     (ROOT / '.nojekyll').write_text('', encoding='utf-8')
@@ -601,7 +622,6 @@ def main():
     print('סניפים: ' + str(len(entries)) +
           ' | תמונות חדשות: ' + str(store.added) +
           ', קיימות: ' + str(store.reused) +
-          ', מוטמעות: ' + str(store.inlined) +
           ', נמחקו: ' + str(removed))
     total = sum(p.stat().st_size for p in store.dir.iterdir() if p.is_file())
     print('assets/img: ' + str(total // 1048576) + 'MB')
