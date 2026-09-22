@@ -1,33 +1,29 @@
 #!/usr/bin/env python3
 """
-בונה את האתר מקבצי MHT.
+בונה את האתר מקבצי MHT של דוחות Priority.
 
 שימוש:
-    python build.py
+    python build.py [--src <תיקיית mht>] [--max-edge 700] [--quality 82]
 
-כל קובץ branches/<שם>.mht הופך ל-<שם>/index.html — קובץ HTML עצמאי אחד
-עם התמונות מוטמעות בתוכו (base64). בנוסף נוצר index.html ראשי עם קישורים לכולם.
+כל קובץ <שם>.mht בתיקיית המקור הופך ל-<שם>/index.html, והתמונות נשמרות
+כקבצים נפרדים ב-<שם>/img/ עם טעינה עצלה. כך עמוד נפתח מיידית גם כשקובץ
+המקור שוקל ג'יגה — הדפדפן מוריד רק את התמונות שגוללים אליהן.
 
-תמונות שלא הוטמעו בקובץ ה-MHT (נתיבי file:/// לשרת Priority) מחופשות
-בתיקיית pics/ המקומית לפי שם הקובץ, ומוטמעות אם נמצאו.
+קבצי MHT נקראים חלק-אחרי-חלק ולא נטענים לזיכרון במלואם.
 """
 
-import base64, email, html as htmlmod, io, os, re, sys
-from email import policy
+import argparse, base64, binascii, html as htmlmod, io, os, quopri, re, shutil, sys
 from pathlib import Path
 
 try:
     from PIL import Image
 except ImportError:
-    Image = None      # בלי Pillow התמונות מוטמעות בגודלן המקורי
-
-MAX_EDGE = 700          # צלע מקסימלית בפיקסלים לתמונה מוטמעת
-JPEG_QUALITY = 82
-MAX_EMBED_BYTES = 40000  # קבצים קטנים מזה מוטמעים כמו שהם
+    Image = None      # בלי Pillow התמונות נשמרות בגודלן המקורי
 
 ROOT = Path(__file__).resolve().parent
-SRC_DIR = ROOT / "branches"
-PICS_NAMES = ("pic", "pics")   # כל תיקייה בשם כזה בפרויקט משמשת מאגר תמונות
+PICS_NAMES = ("pic", "pics")
+IMG_DIR_NAME = "img"
+
 BS = chr(92)
 Q = '["' + chr(39) + ']'
 NQ = '[^"' + chr(39) + '>]'
@@ -36,18 +32,109 @@ IMG_EXT = ('.gif', '.png', '.jpg', '.jpeg', '.svg', '.ico', '.bmp', '.webp')
 MIME = {'jpg': 'jpeg', 'jpeg': 'jpeg', 'svg': 'svg+xml', 'ico': 'x-icon',
         'gif': 'gif', 'png': 'png', 'bmp': 'bmp', 'webp': 'webp'}
 
+INLINE_MAX = 8000       # אייקונים קטנים מזה מוטמעים, כדי לא ליצור עשרות בקשות
+SHRINK_OVER = 40000     # רק קבצים גדולים מזה מוקטנים
+
+
+# ---------------------------------------------------------------- MIME זורם
+
+def _read_headers(f):
+    hdrs, last = {}, None
+    while True:
+        line = f.readline()
+        if not line or line in (b'\r\n', b'\n'):
+            break
+        if line[:1] in (b' ', b'\t') and last:
+            hdrs[last] += ' ' + line.strip().decode('latin-1')
+            continue
+        if b':' in line:
+            k, v = line.split(b':', 1)
+            last = k.strip().decode('latin-1').lower()
+            hdrs[last] = v.strip().decode('latin-1')
+    return hdrs
+
+
+def stream_parts(path):
+    """מחזיר (headers, payload) לכל חלק. כל חלק נקרא בנפרד, כך שגודל הקובץ
+    כולו לא משפיע על הזיכרון — רק גודל החלק הבודד (תמונה אחת)."""
+    with open(path, 'rb') as f:
+        top = _read_headers(f)
+        m = re.search('boundary="?([^";\r\n]+)"?', top.get('content-type', ''))
+        if not m:
+            raise SystemExit('אין boundary בקובץ ' + str(path))
+        delim = b'--' + m.group(1).encode('latin-1')
+
+        while True:                       # דילוג על הפתיח עד הגבול הראשון
+            line = f.readline()
+            if not line:
+                return
+            if line.startswith(delim):
+                break
+
+        while True:
+            hdrs = _read_headers(f)
+            buf, closing = [], False
+            while True:
+                line = f.readline()
+                if not line:
+                    closing = True
+                    break
+                if line.startswith(delim):
+                    closing = line.startswith(delim + b'--')
+                    break
+                buf.append(line)
+            raw = b''.join(buf)
+            if raw.endswith(b'\r\n'):     # ה-CRLF האחרון שייך לגבול
+                raw = raw[:-2]
+            elif raw.endswith(b'\n'):
+                raw = raw[:-1]
+            enc = hdrs.get('content-transfer-encoding', '').lower()
+            try:
+                if enc == 'base64':
+                    raw = base64.b64decode(re.sub(rb'\s', b'', raw))
+                elif enc == 'quoted-printable':
+                    raw = quopri.decodestring(raw)
+            except (binascii.Error, ValueError):
+                pass
+            if hdrs:
+                yield hdrs, raw
+            if closing:
+                return
+
+
+# ---------------------------------------------------------------- תמונות
+
+def shrink(raw, max_edge, quality):
+    """מקטין תמונה גדולה. מחזיר None אם אין מה לשפר."""
+    if Image is None or len(raw) <= SHRINK_OVER:
+        return None
+    try:
+        im = Image.open(io.BytesIO(raw))
+        im.load()
+    except Exception:
+        return None
+    if max(im.size) <= max_edge and len(raw) < 150000:
+        return None
+    if im.mode not in ('RGB', 'L'):
+        im = im.convert('RGB')
+    im.thumbnail((max_edge, max_edge), Image.LANCZOS)
+    buf = io.BytesIO()
+    im.save(buf, 'JPEG', quality=quality, optimize=True, progressive=True)
+    out = buf.getvalue()
+    return out if len(out) < len(raw) else None
+
+
+def safe_name(loc, fallback):
+    name = os.path.basename(loc.replace(BS, '/').split('?')[0]).strip()
+    name = re.sub(r'[^A-Za-z0-9._-]', '_', name)
+    return name if name and '.' in name else fallback
+
 
 class PicIndex:
-    """מפתח שם קובץ -> נתיב בתיקיית pics/, וממיר ל-data URI רק לפי דרישה.
-
-    האינדוקס לא קורא את הקבצים, כדי שתיקיית pics ענקית (עשרות אלפי תמונות)
-    לא תיטען כולה לזיכרון — רק תמונות שבאמת מופיעות בדוח מקודדות.
-    """
+    """מאגר תמונות מקומי, לדוחות ישנים שבהם IE לא הטמיע את התמונות."""
 
     def __init__(self, directories):
-        self.paths = {}
-        self.cache = {}
-        self.dirs = []
+        self.paths, self.dirs = {}, []
         for d in directories:
             if not d.is_dir():
                 continue
@@ -64,70 +151,61 @@ class PicIndex:
     def __contains__(self, name):
         return name in self.paths
 
-    def uri(self, name):
-        if name not in self.cache:
-            p = self.paths[name]
-            ext = p.suffix.lower().lstrip('.')
-            raw = p.read_bytes()
-            small = shrink(raw)
-            if small is not None:
-                raw, ext = small, 'jpg'
-            data = base64.b64encode(raw).decode('ascii')
-            self.cache[name] = 'data:image/' + MIME.get(ext, ext) + ';base64,' + data
-        return self.cache[name]
 
+# ---------------------------------------------------------------- המרה
 
-def shrink(raw):
-    """מקטין תמונות גדולות לפני ההטמעה. מחזיר None אם אין מה לשפר.
+def convert(mht_path, out_dir, extra_pics, opts):
+    img_dir = out_dir / IMG_DIR_NAME
+    if img_dir.exists():
+        shutil.rmtree(img_dir)          # ניקוי תמונות מריצה קודמת
+    img_dir.mkdir(parents=True, exist_ok=True)
 
-    התמונות מוצגות בדוח ב-100x50 פיקסלים, אבל הקבצים המקוריים יכולים
-    להגיע ל-300KB. בלי הקטנה עמוד אחד שוקל כ-10MB, ו-20 סניפים כ-200MB.
-    """
-    if Image is None or len(raw) <= MAX_EMBED_BYTES:
-        return None
-    try:
-        im = Image.open(io.BytesIO(raw))
-        im.load()
-    except Exception:
-        return None
-    if im.mode not in ('RGB', 'L'):
-        im = im.convert('RGB')
-    im.thumbnail((MAX_EDGE, MAX_EDGE), Image.LANCZOS)
-    buf = io.BytesIO()
-    im.save(buf, 'JPEG', quality=JPEG_QUALITY, optimize=True, progressive=True)
-    out = buf.getvalue()
-    if len(out) >= len(raw):
-        return None
-    return out
+    page, texts = None, {}
+    refs = {}          # שם קובץ -> נתיב יחסי או data URI
+    locs = {}          # Content-Location מקורי -> אותו ערך
+    n_files = n_inline = 0
+    bytes_out = 0
 
-
-def convert(mht_path, extra_pics):
-    with open(mht_path, 'rb') as f:
-        msg = email.message_from_binary_file(f, policy=policy.default)
-
-    page = None
-    images = {}
-    texts = {}
-
-    for part in msg.walk():
-        if part.is_multipart():
-            continue
-        ctype = part.get_content_type()
-        loc = (part.get('Content-Location') or '').strip()
-        payload = part.get_payload(decode=True)
-        if payload is None:
-            continue
+    for hdrs, payload in stream_parts(mht_path):
+        ctype = hdrs.get('content-type', '').split(';')[0].strip().lower()
+        loc = hdrs.get('content-location', '').strip()
         low = loc.lower()
+
         if ctype == 'text/html' and page is None:
-            page = payload.decode(part.get_content_charset() or 'utf-8', errors='replace')
-        elif ctype.startswith('image/') or low.endswith(IMG_EXT):
-            guess = ctype if ctype.startswith('image/') else \
-                'image/' + MIME.get(low.rsplit('.', 1)[-1], 'png')
-            small = shrink(payload)
+            cs = 'utf-8'
+            mm = re.search('charset="?([\\w-]+)', hdrs.get('content-type', ''))
+            if mm:
+                cs = mm.group(1)
+            page = payload.decode(cs, errors='replace')
+            continue
+
+        if ctype.startswith('image/') or low.endswith(IMG_EXT):
+            ext = (low.rsplit('.', 1)[-1] if '.' in low else
+                   ctype.split('/')[-1] or 'png')
+            name = safe_name(loc, 'img%03d.%s' % (len(refs), ext))
+            key = name.lower()
+            if key in refs:
+                locs[loc] = refs[key]
+                continue
+            small = shrink(payload, opts.max_edge, opts.quality)
             if small is not None:
-                payload, guess = small, 'image/jpeg'
-            images[loc] = 'data:' + guess + ';base64,' + base64.b64encode(payload).decode('ascii')
-        elif low.endswith('.js') or ctype in ('application/javascript', 'text/javascript'):
+                payload = small
+                name = re.sub(r'\.[^.]+$', '', name) + '.jpg'
+                key = name.lower()
+            if len(payload) <= INLINE_MAX:
+                mt = MIME.get(name.rsplit('.', 1)[-1].lower(), 'png')
+                value = 'data:image/' + mt + ';base64,' + base64.b64encode(payload).decode('ascii')
+                n_inline += 1
+            else:
+                (img_dir / name).write_bytes(payload)
+                value = IMG_DIR_NAME + '/' + name
+                n_files += 1
+                bytes_out += len(payload)
+            refs[key] = value
+            locs[loc] = value
+            continue
+
+        if low.endswith('.js') or ctype in ('application/javascript', 'text/javascript'):
             texts[loc] = ('JS', payload.decode('utf-8', errors='replace'))
         elif low.endswith('.css') or ctype == 'text/css':
             texts[loc] = ('CSS', payload.decode('utf-8', errors='replace'))
@@ -135,82 +213,79 @@ def convert(mht_path, extra_pics):
     if page is None:
         raise SystemExit('אין חלק HTML בקובץ ' + str(mht_path))
 
-    def inline(doc, loc, uri):
+    # דוחות ישנים: התמונות לא ב-MHT אלא במאגר מקומי
+    for ref in set(re.findall('(?i)file:[^"' + chr(39) + ')>\\s]*', page)):
+        key = os.path.basename(ref.replace(BS, '/')).lower()
+        if key in refs or key not in extra_pics:
+            continue
+        raw = extra_pics.paths[key].read_bytes()
+        name = safe_name(key, key)
+        small = shrink(raw, opts.max_edge, opts.quality)
+        if small is not None:
+            raw = small
+            name = re.sub(r'\.[^.]+$', '', name) + '.jpg'
+        if len(raw) <= INLINE_MAX:
+            mt = MIME.get(name.rsplit('.', 1)[-1].lower(), 'png')
+            refs[key] = 'data:image/' + mt + ';base64,' + base64.b64encode(raw).decode('ascii')
+            n_inline += 1
+        else:
+            (img_dir / name).write_bytes(raw)
+            refs[key] = IMG_DIR_NAME + '/' + name
+            n_files += 1
+            bytes_out += len(raw)
+
+    def lookup(ref):
+        return refs.get(os.path.basename(ref.replace(BS, '/')).lower())
+
+    # 1. החלפת כל הפניה לתמונה בנתיב החדש
+    for loc, value in sorted(locs.items(), key=lambda kv: -len(kv[0])):
+        if not loc:
+            continue
         for cand in {loc, loc.replace('file:///', 'file://'), loc.lower(),
                      loc.replace('/', BS), loc.lower().replace('/', BS)}:
-            if cand:
-                doc = doc.replace(cand, uri)
-        base = os.path.basename(loc.replace(BS, '/'))
-        if base:
-            pat = re.compile('(?i)(["' + chr(39) + '(])([^"' + chr(39) + ')>]*?' +
-                             re.escape(base) + ')(["' + chr(39) + ')])')
-            doc = pat.sub(lambda m: m.group(1) + uri + m.group(3), doc)
-        return doc
+            page = page.replace(cand, value)
 
-    # שם קובץ -> data URI, מתוך ה-MHT עצמו או ממאגר התמונות המקומי
-    by_name = {}
-    for loc, uri in images.items():
-        by_name.setdefault(os.path.basename(loc.replace(BS, '/')).lower(), uri)
+    def swap_attr(m):
+        value = lookup(m.group(2))
+        return m.group(1) + value + m.group(3) if value else m.group(0)
 
-    def resolve(ref):
-        name = os.path.basename(ref.replace(BS, '/')).lower()
-        if name in by_name:
-            return name, by_name[name]
-        if name in extra_pics:
-            return name, extra_pics.uri(name)
-        return name, None
+    attr_ref = re.compile('(?i)((?:src|href)\\s*=\\s*' + Q + ')([^"' + chr(39) +
+                          ']*?\\.(?:jpg|jpeg|png|gif|bmp|webp|ico|svg))(' + Q + ')')
+    page = attr_ref.sub(swap_attr, page)
 
-    # 1. כל תמונה עטופה בקישור אליה עצמה. שני פורמטים:
-    #    חדש — <a href="x.jpg"><img src="x.jpg">, הקישור מיותר
-    #    ישן — <a href="file:///d:/...x.jpg"><img src="">, IE ריקן את ה-src
-    #    בשני המקרים: התמונה נכנסת ל-src וה-href מוסר. בלי זה כל תמונה
-    #    הייתה מוטמעת פעמיים והעמוד היה שוקל כפול.
+    css_ref = re.compile('(?i)(url\\(\\s*' + Q + '?)([^)"' + chr(39) +
+                         ']*?\\.(?:jpg|jpeg|png|gif|bmp|webp|ico|svg))(' + Q + '?\\s*\\))')
+    page = css_ref.sub(swap_attr, page)
+
+    # 2. IE מרוקן את src ומשאיר את הנתיב רק ב-href של הקישור העוטף
     filled = []
 
     def fill_from_anchor(m):
-        href, attrs = m.group(2), m.group(3)
-        name, uri = resolve(href)
-        if uri is None:
+        head, href, attrs = m.group(1), m.group(2), m.group(3)
+        if not href.startswith(IMG_DIR_NAME + '/') and not href.startswith('data:'):
             return m.group(0)
-        has_src = re.search('(?i)src\\s*=\\s*' + Q + '\\s*[^"' + chr(39) + '\\s]', attrs)
-        if has_src:
-            # ה-src כבר תקין — רק מסירים את ה-href הכפול
-            wrapper = re.sub('(?is)\\s*href\\s*=\\s*' + Q + re.escape(href) + Q,
-                             '', m.group(1), count=1)
-            return '<a' + wrapper + '><img' + attrs + '>'
+        if re.search('(?i)src\\s*=\\s*' + Q + '\\s*[^"' + chr(39) + '\\s]', attrs):
+            return m.group(0)
         if re.search('(?i)src\\s*=\\s*' + Q, attrs):
             attrs = re.sub('(?i)src\\s*=\\s*' + Q + '[^"' + chr(39) + ']*' + Q,
-                           lambda _: 'src="' + uri + '"', attrs, count=1)
+                           lambda _: 'src="' + href + '"', attrs, count=1)
         else:
-            attrs = ' src="' + uri + '"' + attrs
-        filled.append(name)
-        # מסירים את ה-href כאן, אחרת שלב 3 יטמיע את אותה תמונה שוב בקישור
-        # והעמוד יכיל כל תמונה פעמיים
-        wrapper = re.sub('(?is)\\s*href\\s*=\\s*' + Q + re.escape(href) + Q, '', m.group(1), count=1)
-        return '<a' + wrapper + '><img' + attrs + '>'
+            attrs = ' src="' + href + '"' + attrs
+        filled.append(href)
+        return '<a' + head + '><img' + attrs + '>'
 
-    anchor_img = re.compile(
-        '(?is)<a((?:[^>]*?)href\\s*=\\s*' + Q + '([^"' + chr(39) + ']+?\\.(?:jpg|jpeg|png|gif|bmp|webp))'
-        + Q + '(?:[^>]*?))>\\s*<img([^>]*)>')
+    page = re.compile(
+        '(?is)<a((?:[^>]*?)href\\s*=\\s*' + Q + '([^"' + chr(39) + ']+?)' + Q +
+        '(?:[^>]*?))>\\s*<img([^>]*)>').sub(fill_from_anchor, page)
 
-    page = anchor_img.sub(fill_from_anchor, page)
-    from_anchor = len(filled)
+    # 3. טעינה עצלה לתמונות חיצוניות
+    def lazify(m):
+        tag = m.group(0)
+        if IMG_DIR_NAME + '/' not in tag or re.search('(?i)loading\\s*=', tag):
+            return tag
+        return tag[:-1].rstrip() + ' loading="lazy" decoding="async">'
 
-    # 2. שאר התמונות שהוטמעו בתוך ה-MHT, לפי ה-Content-Location שלהן
-    for loc, uri in images.items():
-        page = inline(page, loc, uri)
-
-    # 3. שאר ההפניות החסרות (רקעים ב-CSS, אייקונים) — לפי שם הקובץ
-    missing, recovered = set(), 0
-    for ref in re.findall('(?i)file:[^"' + chr(39) + ')>\\s]*', page):
-        name = os.path.basename(ref.replace(BS, '/')).lower()
-        if not name.endswith(IMG_EXT):
-            continue
-        if name in extra_pics:
-            page = inline(page, ref, extra_pics.uri(name))
-            recovered += 1
-        else:
-            missing.add(name)
+    page = re.sub('(?is)<img[^>]*>', lazify, page)
 
     # 4. הטמעת JS ו-CSS
     for loc, (kind, body) in texts.items():
@@ -224,7 +299,10 @@ def convert(mht_path, extra_pics):
             page = re.sub('(?is)<link[^>]*href\\s*=\\s*' + Q + '?' + NQ + '*?' + base +
                           Q + '?[^>]*>', lambda m: repl, page)
 
-    # 5. ניטרול הפניות מקומיות מתות שנשארו (פונטים ב-D:, קבצים זמניים)
+    # 5. ניטרול הפניות מקומיות מתות שנשארו
+    missing = sorted({os.path.basename(r.replace(BS, '/')).lower()
+                      for r in re.findall('(?i)file:[^"' + chr(39) + ')>\\s]*', page)
+                      if r.lower().endswith(IMG_EXT)})
     page = re.sub('(?i)url\\(\\s*' + Q + '?file:[^)]*\\)', 'url(about:blank)', page)
     page = re.sub('(?is)<script[^>]*src\\s*=\\s*' + Q + '?file:[^>]*>\\s*</script>', '', page)
     page = re.sub('(?is)<link[^>]*(href|src)\\s*=\\s*' + Q + '?file:[^>]*>', '', page)
@@ -236,57 +314,26 @@ def convert(mht_path, extra_pics):
     m = re.search('(?is)<title[^>]*>(.*?)</title>', page)
     title = re.sub(r'\s+', ' ', htmlmod.unescape(m.group(1))).strip() if m else ''
 
-    return page, title, len(images) + recovered + from_anchor, sorted(missing)
+    (out_dir / 'index.html').write_text(page, encoding='utf-8')
+    if not any(img_dir.iterdir()):
+        img_dir.rmdir()
+
+    return {'title': title, 'html': len(page), 'files': n_files,
+            'inline': n_inline, 'bytes': bytes_out, 'missing': missing}
 
 
-def main():
-    if not SRC_DIR.is_dir():
-        raise SystemExit('לא נמצאה התיקייה branches/')
-
-    pic_dirs = sorted(d for d in ROOT.rglob('*')
-                      if d.is_dir() and d.name.lower() in PICS_NAMES
-                      and '.git' not in d.parts)
-    extra = PicIndex(pic_dirs)
-    if extra:
-        for d, n in extra.dirs:
-            print('מאגר תמונות: ' + d.relative_to(ROOT).as_posix() + '/  (' + str(n) + ' קבצים)')
-    else:
-        print('לא נמצאה תיקיית pic/ או pics/ — תמונות חסרות יישארו שבורות')
-
-    entries, all_missing = [], set()
-    for mht in sorted(SRC_DIR.glob('*.mht')) + sorted(SRC_DIR.glob('*.mhtml')):
-        name = mht.stem
-        page, title, n_img, missing = convert(mht, extra)
-        out_dir = ROOT / name
-        out_dir.mkdir(exist_ok=True)
-        (out_dir / 'index.html').write_text(page, encoding='utf-8')
-        all_missing |= set(missing)
-        entries.append((name, title, len(page)))
-        status = 'תמונות: ' + str(n_img)
-        if missing:
-            status += '  | חסרות: ' + str(len(missing))
-        print('  ' + name + '/index.html  (' + str(len(page) // 1024) + 'KB, ' + status + ')')
-
-    (ROOT / 'index.html').write_text(build_menu(entries), encoding='utf-8')
-    (ROOT / '.nojekyll').write_text('', encoding='utf-8')
-
-    print('')
-    print('נבנו ' + str(len(entries)) + ' עמודים + תפריט ראשי')
-    if all_missing:
-        print('')
-        print(str(len(all_missing)) + ' תמונות חסרות. העתק אותן לתיקייה pics/ והרץ שוב:')
-        for n in sorted(all_missing)[:40]:
-            print('   ' + n)
-
+# ---------------------------------------------------------------- תפריט
 
 def build_menu(entries):
     cards = []
-    for name, title, size in entries:
-        label = htmlmod.escape(title) if title else '&nbsp;'
+    for name, info in entries:
+        label = htmlmod.escape(info['title']) if info['title'] else '&nbsp;'
+        n = info['files'] + info['inline']
         cards.append(
             '    <a class="card" href="./' + htmlmod.escape(name) + '/">'
             '<span class="num">' + htmlmod.escape(name) + '</span>'
-            '<span class="ttl">' + label + '</span></a>')
+            '<span class="ttl">' + label + '</span>'
+            '<span class="meta">' + str(n) + ' תמונות</span></a>')
     return '''<!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
@@ -302,16 +349,17 @@ def build_menu(entries):
   * { box-sizing: border-box; }
   body { margin:0; padding:40px 16px; background:var(--bg); color:var(--fg);
          font-family:"Segoe UI",system-ui,Arial,sans-serif; }
-  .wrap { max-width:860px; margin:0 auto; }
+  .wrap { max-width:900px; margin:0 auto; }
   h1 { font-size:1.6rem; margin:0 0 4px; }
   p.sub { color:var(--muted); margin:0 0 28px; font-size:.95rem; }
-  .grid { display:grid; gap:12px; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); }
+  .grid { display:grid; gap:12px; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); }
   .card { display:flex; flex-direction:column; gap:6px; padding:16px 18px; text-decoration:none;
           background:var(--card); border:1px solid var(--line); border-radius:10px; color:inherit;
           transition:border-color .15s, transform .15s; }
   .card:hover { border-color:var(--accent); transform:translateY(-2px); }
   .num { font-size:1.25rem; font-weight:600; color:var(--accent); }
   .ttl { font-size:.85rem; color:var(--muted); line-height:1.4; }
+  .meta { font-size:.75rem; color:var(--muted); opacity:.8; }
   footer { margin-top:32px; color:var(--muted); font-size:.8rem; }
 </style>
 </head>
@@ -327,6 +375,62 @@ def build_menu(entries):
 </body>
 </html>
 '''
+
+
+# ---------------------------------------------------------------- main
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--src', default=str(ROOT / 'branches'),
+                    help='תיקיית קבצי ה-MHT')
+    ap.add_argument('--max-edge', type=int, default=700)
+    ap.add_argument('--quality', type=int, default=82)
+    opts = ap.parse_args()
+
+    src = Path(opts.src)
+    if not src.is_dir():
+        raise SystemExit('לא נמצאה תיקיית המקור: ' + str(src))
+
+    pic_dirs = sorted(d for d in ROOT.rglob('*')
+                      if d.is_dir() and d.name.lower() in PICS_NAMES
+                      and '.git' not in d.parts)
+    extra = PicIndex(pic_dirs)
+    for d, n in extra.dirs:
+        print('מאגר תמונות: ' + d.relative_to(ROOT).as_posix() + '/  (' + str(n) + ' קבצים)')
+    if Image is None:
+        print('אזהרה: Pillow לא מותקן — תמונות יישמרו בגודלן המקורי')
+
+    sources = sorted(list(src.glob('*.mht')) + list(src.glob('*.mhtml')))
+    if not sources:
+        raise SystemExit('לא נמצאו קבצי mht ב-' + str(src))
+
+    entries, total, all_missing = [], 0, set()
+    for mht in sources:
+        name = re.sub(r'[^A-Za-z0-9._-]', '_', mht.stem)
+        info = convert(mht, ROOT / name, extra, opts)
+        entries.append((name, info))
+        total += info['bytes'] + info['html']
+        all_missing |= set(info['missing'])
+        line = ('  ' + name + '/  ' + str(info['html'] // 1024) + 'KB html, ' +
+                str(info['files']) + ' תמונות (' + str(info['bytes'] // 1048576) + 'MB)')
+        if info['inline']:
+            line += ', ' + str(info['inline']) + ' מוטמעות'
+        if info['missing']:
+            line += '  | חסרות: ' + str(len(info['missing']))
+        print(line)
+
+    (ROOT / 'index.html').write_text(build_menu(entries), encoding='utf-8')
+    (ROOT / '.nojekyll').write_text('', encoding='utf-8')
+
+    print('')
+    print('נבנו ' + str(len(entries)) + ' סניפים, סה"כ ' + str(total // 1048576) + 'MB')
+    if total > 900 * 1048576:
+        print('אזהרה: GitHub Pages מוגבל ל-1GB לאתר')
+    if all_missing:
+        print('')
+        print(str(len(all_missing)) + ' תמונות חסרות:')
+        for n in sorted(all_missing)[:30]:
+            print('   ' + n)
 
 
 if __name__ == '__main__':

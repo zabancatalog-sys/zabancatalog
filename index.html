@@ -13,16 +13,17 @@
   * { box-sizing: border-box; }
   body { margin:0; padding:40px 16px; background:var(--bg); color:var(--fg);
          font-family:"Segoe UI",system-ui,Arial,sans-serif; }
-  .wrap { max-width:860px; margin:0 auto; }
+  .wrap { max-width:900px; margin:0 auto; }
   h1 { font-size:1.6rem; margin:0 0 4px; }
   p.sub { color:var(--muted); margin:0 0 28px; font-size:.95rem; }
-  .grid { display:grid; gap:12px; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); }
+  .grid { display:grid; gap:12px; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); }
   .card { display:flex; flex-direction:column; gap:6px; padding:16px 18px; text-decoration:none;
           background:var(--card); border:1px solid var(--line); border-radius:10px; color:inherit;
           transition:border-color .15s, transform .15s; }
   .card:hover { border-color:var(--accent); transform:translateY(-2px); }
   .num { font-size:1.25rem; font-weight:600; color:var(--accent); }
   .ttl { font-size:.85rem; color:var(--muted); line-height:1.4; }
+  .meta { font-size:.75rem; color:var(--muted); opacity:.8; }
   footer { margin-top:32px; color:var(--muted); font-size:.8rem; }
 </style>
 </head>
@@ -31,7 +32,7 @@
     <h1>קטלוג סניפים</h1>
     <p class="sub">1 דוחות מלאי. בחר סניף:</p>
     <div class="grid">
-    <a class="card" href="./666/"><span class="num">666</span><span class="ttl">מלאי נוכחי לפי מחסן - הנהלה</span></a>
+    <a class="card" href="./666/"><span class="num">666</span><span class="ttl">מלאי נוכחי לפי מחסן - הנהלה</span><span class="meta">41 תמונות</span></a>
     </div>
     <footer>נבנה אוטומטית מקבצי MHT · build.py</footer>
   </div>
