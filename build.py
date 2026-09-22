@@ -284,9 +284,16 @@ def convert(mht_path, out_dir, extra_pics, opts):
     # דוחות ישנים: התמונות לא ב-MHT אלא במאגר מקומי
     for ref in set(re.findall('(?i)file:[^"' + chr(39) + ')>\\s]*', page)):
         key = os.path.basename(ref.replace(BS, '/')).lower()
-        if key in refs or key not in extra_pics:
+        if key in refs or not key.endswith(IMG_EXT):
             continue
-        raw = extra_pics.paths[key].read_bytes()
+        # קודם הדיסק — על השרת הנתיב המקורי (D:\priority\...) באמת קיים
+        src_file = resolve_local(ref, mht_path.parent)
+        if src_file.is_file():
+            raw = src_file.read_bytes()
+        elif key in extra_pics:
+            raw = extra_pics.paths[key].read_bytes()
+        else:
+            continue
         name = safe_name(key, key)
         small = shrink(raw, opts.max_edge, opts.quality)
         if small is not None:
