@@ -12,7 +12,7 @@
 קבצי MHT נקראים חלק-אחרי-חלק ולא נטענים לזיכרון במלואם.
 """
 
-import argparse, base64, binascii, html as htmlmod, io, os, quopri, re, shutil, sys
+import argparse, base64, binascii, html as htmlmod, io, os, quopri, re, sys
 from pathlib import Path
 
 try:
@@ -102,6 +102,83 @@ def stream_parts(path):
                 return
 
 
+# ---------------------------------------------------------------- קלט אחיד
+
+REF_RE = re.compile(
+    '(?i)(?:src|href)\\s*=\\s*' + Q + '([^"' + chr(39) + ']+?\\.(?:jpg|jpeg|png|gif|bmp|webp|ico|svg))' + Q +
+    '|url\\(\\s*' + Q + '?([^)"' + chr(39) + ']+?\\.(?:jpg|jpeg|png|gif|bmp|webp|ico|svg))' + Q + '?\\s*\\)')
+
+
+def resolve_local(ref, base_dir):
+    """file:///d:/x.jpg, file:\\\\\\d:\\x.jpg, d:\\x.jpg או נתיב יחסי -> Path."""
+    p = ref.split('?')[0]
+    try:
+        from urllib.parse import unquote
+        p = unquote(p)
+    except Exception:
+        pass
+    m = re.search('(?i)(?<![a-z0-9])([a-z]:[\\\\/].*)$', p)
+    if m:
+        p = m.group(1)
+    else:
+        p = re.sub('(?i)^file:[\\\\/]*', '', p)
+    p = p.replace(BS, '/')
+    path = Path(p)
+    if not path.is_absolute():
+        path = base_dir / p
+    return path
+
+
+def iter_resources(path):
+    """מחזיר ('html'|'image'|'js'|'css', loc, payload) לכל משאב, אחד-אחד.
+
+    תומך בשני פורמטים: MHT (חלקי MIME) ו-HTML רגיל עם תיקיית תמונות לידו.
+    בשני המקרים לא נטען יותר ממשאב אחד לזיכרון בכל רגע.
+    """
+    if path.suffix.lower() in ('.mht', '.mhtml'):
+        for hdrs, payload in stream_parts(path):
+            ctype = hdrs.get('content-type', '').split(';')[0].strip().lower()
+            loc = hdrs.get('content-location', '').strip()
+            low = loc.lower()
+            if ctype == 'text/html':
+                cs = 'utf-8'
+                mm = re.search('charset="?([\\w-]+)', hdrs.get('content-type', ''))
+                if mm:
+                    cs = mm.group(1)
+                yield 'html', loc, payload.decode(cs, errors='replace')
+            elif ctype.startswith('image/') or low.endswith(IMG_EXT):
+                yield 'image', loc or ('x.' + (ctype.split('/')[-1] or 'png')), payload
+            elif low.endswith('.js') or ctype in ('application/javascript', 'text/javascript'):
+                yield 'js', loc, payload.decode('utf-8', errors='replace')
+            elif low.endswith('.css') or ctype == 'text/css':
+                yield 'css', loc, payload.decode('utf-8', errors='replace')
+        return
+
+    # HTML רגיל: התמונות יושבות בדיסק לצד הקובץ או בנתיב מוחלט
+    raw = path.read_bytes()
+    enc = 'utf-8'
+    mm = re.search(rb'(?i)charset=["\']?([\w-]+)', raw[:4000])
+    if mm:
+        enc = mm.group(1).decode('ascii', 'replace')
+    try:
+        page = raw.decode(enc, errors='replace')
+    except LookupError:
+        page = raw.decode('utf-8', errors='replace')
+    yield 'html', path.name, page
+
+    base_dir = path.parent
+    seen = set()
+    for m in REF_RE.finditer(page):
+        ref = m.group(1) or m.group(2)
+        key = os.path.basename(ref.replace(BS, '/')).lower()
+        if key in seen:
+            continue
+        seen.add(key)
+        f = resolve_local(ref, base_dir)
+        if f.is_file():
+            yield 'image', ref, f.read_bytes()
+
+
 # ---------------------------------------------------------------- תמונות
 
 def shrink(raw, max_edge, quality):
@@ -156,9 +233,8 @@ class PicIndex:
 
 def convert(mht_path, out_dir, extra_pics, opts):
     img_dir = out_dir / IMG_DIR_NAME
-    if img_dir.exists():
-        shutil.rmtree(img_dir)          # ניקוי תמונות מריצה קודמת
     img_dir.mkdir(parents=True, exist_ok=True)
+    written = set()                     # לניקוי תמונות שנשארו מריצה קודמת
 
     page, texts = None, {}
     refs = {}          # שם קובץ -> נתיב יחסי או data URI
@@ -166,22 +242,16 @@ def convert(mht_path, out_dir, extra_pics, opts):
     n_files = n_inline = 0
     bytes_out = 0
 
-    for hdrs, payload in stream_parts(mht_path):
-        ctype = hdrs.get('content-type', '').split(';')[0].strip().lower()
-        loc = hdrs.get('content-location', '').strip()
+    for kind, loc, payload in iter_resources(mht_path):
         low = loc.lower()
 
-        if ctype == 'text/html' and page is None:
-            cs = 'utf-8'
-            mm = re.search('charset="?([\\w-]+)', hdrs.get('content-type', ''))
-            if mm:
-                cs = mm.group(1)
-            page = payload.decode(cs, errors='replace')
+        if kind == 'html':
+            if page is None:
+                page = payload
             continue
 
-        if ctype.startswith('image/') or low.endswith(IMG_EXT):
-            ext = (low.rsplit('.', 1)[-1] if '.' in low else
-                   ctype.split('/')[-1] or 'png')
+        if kind == 'image':
+            ext = low.rsplit('.', 1)[-1] if '.' in low else 'png'
             name = safe_name(loc, 'img%03d.%s' % (len(refs), ext))
             key = name.lower()
             if key in refs:
@@ -198,6 +268,7 @@ def convert(mht_path, out_dir, extra_pics, opts):
                 n_inline += 1
             else:
                 (img_dir / name).write_bytes(payload)
+                written.add(name.lower())
                 value = IMG_DIR_NAME + '/' + name
                 n_files += 1
                 bytes_out += len(payload)
@@ -205,10 +276,7 @@ def convert(mht_path, out_dir, extra_pics, opts):
             locs[loc] = value
             continue
 
-        if low.endswith('.js') or ctype in ('application/javascript', 'text/javascript'):
-            texts[loc] = ('JS', payload.decode('utf-8', errors='replace'))
-        elif low.endswith('.css') or ctype == 'text/css':
-            texts[loc] = ('CSS', payload.decode('utf-8', errors='replace'))
+        texts[loc] = ('JS' if kind == 'js' else 'CSS', payload)
 
     if page is None:
         raise SystemExit('אין חלק HTML בקובץ ' + str(mht_path))
@@ -230,6 +298,7 @@ def convert(mht_path, out_dir, extra_pics, opts):
             n_inline += 1
         else:
             (img_dir / name).write_bytes(raw)
+            written.add(name.lower())
             refs[key] = IMG_DIR_NAME + '/' + name
             n_files += 1
             bytes_out += len(raw)
@@ -315,8 +384,13 @@ def convert(mht_path, out_dir, extra_pics, opts):
     title = re.sub(r'\s+', ' ', htmlmod.unescape(m.group(1))).strip() if m else ''
 
     (out_dir / 'index.html').write_text(page, encoding='utf-8')
-    if not any(img_dir.iterdir()):
-        img_dir.rmdir()
+
+    for stale in img_dir.iterdir():     # תמונות שכבר לא בשימוש
+        if stale.is_file() and stale.name.lower() not in written:
+            try:
+                stale.unlink()
+            except OSError:
+                pass
 
     return {'title': title, 'html': len(page), 'files': n_files,
             'inline': n_inline, 'bytes': bytes_out, 'missing': missing}
@@ -400,9 +474,10 @@ def main():
     if Image is None:
         print('אזהרה: Pillow לא מותקן — תמונות יישמרו בגודלן המקורי')
 
-    sources = sorted(list(src.glob('*.mht')) + list(src.glob('*.mhtml')))
+    sources = sorted(p for p in src.iterdir()
+                     if p.suffix.lower() in ('.mht', '.mhtml', '.htm', '.html'))
     if not sources:
-        raise SystemExit('לא נמצאו קבצי mht ב-' + str(src))
+        raise SystemExit('לא נמצאו קבצי mht או html ב-' + str(src))
 
     entries, total, all_missing = [], 0, set()
     for mht in sources:
