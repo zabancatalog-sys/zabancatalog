@@ -1,4 +1,4 @@
-﻿﻿<#
+﻿<#
     בונה את הקטלוג מדוחות Priority ודוחף ל-GitHub Pages.
     מיועד להרצה יומית מתוך מתזמן המשימות של Windows על שרת הלקוח.
 
@@ -21,6 +21,7 @@ param(
                            'D:\priority\system\mail'),
     [int]$MaxEdge     = 220,
     [int]$Quality     = 72,
+    [int]$MaxSiteMb   = 950,     # GitHub Pages מוגבל ל-1024; נעצרים לפני
     [switch]$Reindex,
     [int]$KeepLogs    = 30
 )
@@ -82,6 +83,16 @@ try {
             else { Write-Log "תיקיית תמונות לא קיימת, מדולגת: $r" 'WARN' }
         }
         Invoke-Step 'בניית האתר' { python @buildArgs }
+
+        # בלם נפח: GitHub Pages מפסיק להגיש אתר שחורג מ-1GB. עדיף להשאיר
+        # את הגרסה הקודמת באוויר מאשר לדחוף גרסה שתשבור את האתר
+        $published = @(Get-ChildItem -LiteralPath $Repo -Recurse -File -ErrorAction SilentlyContinue |
+                       Where-Object { $_.FullName -notlike "*\.git\*" })
+        $siteMb = [math]::Round((($published | Measure-Object Length -Sum).Sum) / 1MB, 0)
+        Write-Log "נפח האתר: $siteMb MB מתוך $MaxSiteMb MB מותרים ($($published.Count) קבצים)"
+        if ($siteMb -gt $MaxSiteMb) {
+            throw "האתר תופס $siteMb MB, מעל הסף של $MaxSiteMb MB. לא פורסם. הקטן את MaxEdge והרץ שוב."
+        }
 
         $dirty = git status --porcelain
         if (-not $dirty) {
