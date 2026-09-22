@@ -15,9 +15,13 @@ param(
     [string]$Source   = 'D:\priority\zabanCatalog',
     [string]$Repo     = 'D:\sites\zabanCatalog',
     [string]$LogDir   = 'D:\sites\logs',
-    [string[]]$ImgRoot = @('D:\priority\system\mail\Pics', 'D:\priority\system\images'),
-    [int]$MaxEdge     = 700,
-    [int]$Quality     = 82,
+    [string[]]$ImgRoot = @('D:\priority\system\mail\Pics',
+                           'D:\priority\system\images',
+                           'D:\priority\system\images\coral\images',
+                           'D:\priority\system\mail'),
+    [int]$MaxEdge     = 300,
+    [int]$Quality     = 75,
+    [switch]$Reindex,
     [int]$KeepLogs    = 30
 )
 
@@ -72,6 +76,7 @@ try {
 
         $buildArgs = @((Join-Path $Repo 'build.py'), '--src', $Source,
                        '--max-edge', $MaxEdge, '--quality', $Quality)
+        if ($Reindex) { $buildArgs += '--reindex' }
         foreach ($r in $ImgRoot) {
             if (Test-Path -LiteralPath $r) { $buildArgs += @('--img-root', $r) }
             else { Write-Log "תיקיית תמונות לא קיימת, מדולגת: $r" 'WARN' }

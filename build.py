@@ -16,7 +16,7 @@
 קבצי MHT נקראים חלק-אחרי-חלק, כך שקובץ ג'יגה לא נטען לזיכרון.
 """
 
-import argparse, base64, binascii, html as htmlmod, io, os, quopri, re, sys
+import argparse, base64, binascii, html as htmlmod, io, os, quopri, re, sqlite3, sys, time
 from pathlib import Path
 
 try:
@@ -146,24 +146,105 @@ def safe_name(name, fallback):
 
 
 class ImageRoots:
-    """אינדקס שם-קובץ -> נתיב, על פני תיקיות התמונות של Priority."""
+    """איתור תמונה לפי שם קובץ בתיקיות התמונות של Priority.
 
-    def __init__(self, directories):
-        self.paths, self.dirs = {}, []
+    רוב התמונות יושבות ישירות בשורש תיקיית Pics, ולכן קודם כל מרכיבים את
+    הנתיב ובודקים קיום — מיידי. השאר מפוזרות בתתי-תיקיות לפי תאריך
+    (mail\\202108\\vs3qb\\...), ואותן מוצאים דרך אינדקס.
+
+    האינדקס יושב ב-SQLite ולא בזיכרון: ספריית התמונות מכילה מעל מיליון
+    קבצים, ומילון כזה היה תופס מאות מגה-בייט בכל ריצה. הבנייה שלו נעשית
+    פעם בכמה ימים, והשאילתות קוראות מהדיסק.
+    """
+
+    def __init__(self, directories, db_path, reindex_days=7, force=False,
+                 log=print):
+        self.roots, self.dirs = [], []
         for d in directories:
             d = Path(d)
-            if not d.is_dir():
+            if d.is_dir():
+                self.roots.append(d)
+                self.dirs.append((d, None))
+            else:
                 self.dirs.append((d, -1))
-                continue
-            n = 0
-            for p in d.rglob('*'):
-                if p.is_file() and p.suffix.lower() in IMG_EXT:
-                    if self.paths.setdefault(p.name.lower(), p) is p:
+
+        self.db = None
+        self.hits_direct = self.hits_index = 0
+        if not self.roots:
+            return
+
+        db_path = Path(db_path)
+        stale = True
+        if db_path.exists() and not force:
+            age_days = (time.time() - db_path.stat().st_mtime) / 86400
+            stale = age_days > reindex_days
+            if stale:
+                log('אינדקס התמונות בן %.0f ימים — נבנה מחדש' % age_days)
+        if stale or force:
+            self._build(db_path, log)
+        self.db = sqlite3.connect(str(db_path))
+        self.db.execute('PRAGMA query_only = ON')
+
+    @staticmethod
+    def _inside(child, parent):
+        try:
+            child.relative_to(parent)
+            return True
+        except ValueError:
+            return False
+
+    def _build(self, db_path, log):
+        tmp = db_path.with_suffix('.building')
+        if tmp.exists():
+            tmp.unlink()
+        con = sqlite3.connect(str(tmp))
+        con.execute('PRAGMA journal_mode = OFF')
+        con.execute('PRAGMA synchronous = OFF')
+        con.execute('CREATE TABLE img (name TEXT PRIMARY KEY, path TEXT)')
+        # תיקייה שנמצאת בתוך תיקייה אחרת ברשימה תיסרק ממילא, ואין טעם
+        # לעבור עליה פעמיים — בספרייה הזו זה הפרש של מאות אלפי קבצים
+        tops = []
+        for d in sorted(self.roots, key=lambda p: len(str(p))):
+            if not any(self._inside(d, t) for t in tops):
+                tops.append(d)
+
+        t0, n = time.time(), 0
+        batch = []
+        for d in tops:
+            for dirpath, _dirs, files in os.walk(d):
+                for f in files:
+                    if f.lower().endswith(IMG_EXT):
+                        batch.append((f.lower(), os.path.join(dirpath, f)))
                         n += 1
-            self.dirs.append((d, n))
+                if len(batch) >= 50000:
+                    con.executemany('INSERT OR IGNORE INTO img VALUES (?,?)', batch)
+                    batch = []
+        if batch:
+            con.executemany('INSERT OR IGNORE INTO img VALUES (?,?)', batch)
+        con.commit()
+        con.close()
+        if db_path.exists():
+            db_path.unlink()
+        tmp.rename(db_path)
+        log('אינדקס תמונות נבנה: %d קבצים ב-%.0f שניות' % (n, time.time() - t0))
 
     def get(self, key):
-        return self.paths.get(key)
+        for d in self.roots:
+            p = d / key
+            try:
+                if p.is_file():
+                    self.hits_direct += 1
+                    return p
+            except OSError:
+                pass
+        if self.db is not None:
+            row = self.db.execute('SELECT path FROM img WHERE name = ?', (key,)).fetchone()
+            if row:
+                p = Path(row[0])
+                if p.is_file():
+                    self.hits_index += 1
+                    return p
+        return None
 
 
 # ---------------------------------------------------------------- תמונות
@@ -463,8 +544,14 @@ def main():
     ap.add_argument('--src', default=str(ROOT / 'branches'), help='תיקיית הדוחות')
     ap.add_argument('--img-root', action='append', default=[],
                     help='תיקיית תמונות של Priority (אפשר לחזור על הדגל)')
-    ap.add_argument('--max-edge', type=int, default=700)
-    ap.add_argument('--quality', type=int, default=82)
+    ap.add_argument('--max-edge', type=int, default=300,
+                    help='צלע מקסימלית לתמונה. בטבלה הן מוצגות ב-100x50')
+    ap.add_argument('--quality', type=int, default=75)
+    ap.add_argument('--index-db', default=str(ROOT / '.imgindex.db'),
+                    help='אינדקס שמות הקבצים בתיקיות התמונות')
+    ap.add_argument('--reindex', action='store_true', help='לבנות את האינדקס מחדש')
+    ap.add_argument('--reindex-days', type=int, default=7,
+                    help='גיל מרבי לאינדקס לפני בנייה מחדש')
     ap.add_argument('--refresh-assets', action='store_true',
                     help='לעבד מחדש גם תמונות שכבר קיימות ב-assets/img')
     opts = ap.parse_args()
@@ -476,12 +563,12 @@ def main():
     dirs = list(opts.img_root)
     dirs += [d for d in ROOT.rglob('*')
              if d.is_dir() and d.name.lower() in PICS_NAMES and '.git' not in d.parts]
-    roots = ImageRoots(dirs)
-    for d, n in roots.dirs:
-        if n < 0:
+    for d in dirs:
+        if not Path(d).is_dir():
             print('אזהרה: תיקיית תמונות לא קיימת — ' + str(d))
         else:
-            print('תמונות: ' + str(d) + '  (' + str(n) + ' קבצים)')
+            print('תמונות: ' + str(d))
+    roots = ImageRoots(dirs, opts.index_db, opts.reindex_days, opts.reindex)
     if Image is None:
         print('אזהרה: Pillow לא מותקן — תמונות יישמרו בגודלן המקורי')
 
@@ -509,6 +596,8 @@ def main():
     (ROOT / '.nojekyll').write_text('', encoding='utf-8')
 
     print('')
+    print('איתור תמונות: ' + str(roots.hits_direct) + ' ישיר, ' +
+          str(roots.hits_index) + ' דרך האינדקס')
     print('סניפים: ' + str(len(entries)) +
           ' | תמונות חדשות: ' + str(store.added) +
           ', קיימות: ' + str(store.reused) +

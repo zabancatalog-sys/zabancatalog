@@ -3,3 +3,5 @@ pic/
 branches/*.mht
 branches/*.htm
 branches/*.html
+.imgindex.db
+.imgindex.building
