@@ -1,0 +1,586 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0016)http://127.0.0.1 -->
+<HTML>
+<HEAD>
+<meta http-equiv='X-UA-Compatible' content='IE=edge'/>
+<TITLE>מלאי נוכחי לפי מחסן - הנהלה</TITLE>
+<meta name="GENERATOR" content="Priority 25.0 - Enterprise Management System - Copyright © Priority Software Ltd. 1986-2026">
+<meta http-equiv="Content-Type" content="text/html;  charset=utf-8">
+<link rel="icon" href="data:,">
+<SCRIPT LANGUAGE=javascript TYPE="text/javascript">
+<!--
+<!--| Priority Script |-->
+<!--| Priority Report Options |-->
+function initform() {
+    <!--| Priority Defaults |-->
+	return true;
+}
+function validate(form) {
+	return true;
+}
+//-->
+</SCRIPT>
+<style>
+<!--
+@font-face {
+    font-family: 'Heebo';
+	src: url(about:blank) format('woff'),
+		 url(about:blank) format('woff2');
+    src: url(about:blank)  format("eot"),
+		 url(about:blank) format('embedded-opentype');
+}
+
+
+@font-face {
+    font-family: 'Bree Serif';
+	src: url(about:blank) format('woff'),
+		 url(about:blank) format('woff2');
+	src: url(about:blank) format("eot"),
+		 url(about:blank) format('embedded-opentype');
+}
+
+
+body	{
+	font-family:'Arial';
+	font-size: 12pt; 
+}
+
+
+tr font[style*="Bree Serif"] {
+	font-family: 'Bree Serif', serif !important;
+}
+tr[dir="rtl"] font[style*="Bree Serif"] {
+	font-family: "Heebo" !important;
+}
+
+/* a	{ color: #305774; text-decoration: underline }
+a:hover { color: #000000; } */
+a	{ color: #00adee;  text-decoration: underline;}
+.ColTitlesLine td a{
+	text-decoration: none;
+}
+.datafont {
+	font-size: 9pt; 
+	font-family: Verdana, Sans Serif, Helvetica; 
+}
+.totalfont {
+	font-size: 9pt; 
+	font-family: Verdana, Sans Serif, Helvetica; 
+}
+.titlefont {
+	font-size: 9pt; 
+	font-family: Verdana, Sans Serif, Helvetica; 
+	font-weight: bold; 
+}
+.groupfont {
+	font-size: 9pt; 
+	font-family: Verdana, Sans Serif, Helvetica; 
+}
+.SmallDataFont {
+	font-size: 8pt; 
+	font-family:Arial;
+}
+#a { text-decoration:none; color:#000080; }
+#a:hover {text-decoration:underline; color:"#0000ff"}
+.DOCNO a{
+	text-decoration:underline; color:"#000000";
+}
+p {margin:0cm;font-size:10.0pt;font-family:'Arial';}
+thead {display: table-header-group}
+tfoot {display: table-footer-group}
+table {border-collapse:collapse}
+/*
+td {mso-number-format:\@} 
+*/
+.Editcbtn { height:18; width:22;
+            BORDER-LEFT: threedface 1px solid;
+            BORDER-RIGHT: threedface 1px solid;
+            BORDER-TOP: threedface 1px solid;
+            BORDER-BOTTOM: threedface 1px solid; }
+.titletbl { 
+	height:40px;
+	box-sizing:border-box;
+	 -moz-box-sizing:border-box; /* Firefox */
+	 -webkit-box-sizing:border-box; /* Safari */
+}
+.tabstbl {
+	height:30px;
+}
+.buttonstbl {
+	height:19px;
+	table-layout: fixed;
+}
+.buttonstbl a { text-decoration:none; color:#000080; }
+.dbframe {
+	border-style:solid;
+	border-width:1;
+	border-color:#808080;
+	margin-left:3px;
+	margin-right:0px;
+	margin-top:3px;
+	margin-bottom:0px;
+	display:none;
+}
+.titlebar{
+	background-image:url(../assets/img/titlebar40.jpg);
+	padding-left:5px;
+	padding-right:5px;
+	padding-top:4px;
+	padding-bottom:4px;
+	valign:center;
+}
+.titlebar img{
+	margin-left:2px;
+	margin-right:2px;
+}
+.lefton a { text-decoration:none; color:#000080; }
+.lefton {
+	background-image:url(../assets/img/left-on30.png);
+	background-repeat:no-repeat;
+	padding-left:10px;
+	padding-right:0px;
+	vertical-align:top;
+	cursor:pointer;
+}
+.leftoff a{ text-decoration:none; color:#000080; }
+.leftoff {
+	background-image:url(../assets/img/left-off30.png);
+	background-repeat:no-repeat;
+	padding-left:10px;
+	padding-right:0px;
+	vertical-align:top;
+	cursor:pointer;
+}
+.leftonmiddleoff a{ text-decoration:none; color:#000080; }
+.leftonmiddleoff {
+	background-image:url(../assets/img/left-on-middle-off30.png);
+	background-repeat:no-repeat;
+	padding-left:20px;
+	padding-right:0px;
+	vertical-align:top;
+	cursor:pointer;
+}
+.middleon a{ text-decoration:none; color:#000080; }
+.middleon {
+	background-image:url(../assets/img/middle-on30.png);
+	background-repeat:no-repeat;
+	padding-left:20px;
+	padding-right:0px;
+	vertical-align:top;
+	cursor:pointer;
+}
+.middleoff a{ text-decoration:none; color:#000080; }
+.middleoff {
+	background-image:url(../assets/img/middle-off30.png);
+	background-repeat:no-repeat;
+	padding-left:20px;
+	padding-right:0px;
+	vertical-align:top;
+	cursor:pointer;
+}
+.righton a{ text-decoration:none; color:#000080; }
+.righton {
+	background-image:url(../assets/img/right-on30.png);
+	background-repeat:no-repeat;
+	width:10px;
+	vertical-align:top;
+}
+.rightoff a{ text-decoration:none; color:#000080; }
+.rightoff {
+	background-image:url(../assets/img/right-off30.png);
+	background-repeat:no-repeat;
+	width:10px;
+	vertical-align:top;
+}
+.indent {
+	padding-left:25px;
+	padding-right:25px;
+}
+.newpage {
+	page-break-before:always;
+}
+.fs {
+	background-color:white;
+	border-collapse:separate;
+}
+.bttn1,.bttn2,.bttn3,.bttn4,.bttn5,.bttn6,.bttn7,.bttn8 {
+	background-image:url(../assets/img/bttnm.bmp);
+	width:70px;
+	cursor:pointer;
+	vertical-align:top
+}
+.disabled_bttn {
+	background-image:url(../assets/img/bttnm-gray.bmp);
+	width:70px;
+	cursor:default;
+}
+.disabled_bttn font {
+	color:#404040;
+}
+.rightbtn{
+	background-image:url(../assets/img/bttnr.gif);
+	background-repeat:no-repeat;
+	width:15px;
+	cursor:default;
+}
+.disabled_rightbtn{
+	background-image:url(../assets/img/bttnr-gray.gif);
+	width:15px;
+	cursor:default;
+}
+.leftbtn{
+	background-image:url(../assets/img/bttnl.gif);
+	background-repeat:no-repeat;
+	width:15px;
+	cursor:default;
+}
+.disabled_leftbtn{
+	background-image:url(../assets/img/bttnl-gray.gif);
+	width:15px;
+	cursor:default;
+}
+.ol2{
+	border-top-style:double;
+	border-top-width:3;
+	border-top-color:black;
+}
+.ol{
+	border-top-style:solid;
+	border-top-width:1;
+	border-top-color:black;
+}
+.ul2{
+	border-bottom-style:double;
+	border-bottom-width:3;
+	border-bottom-color:black;
+}
+.ul{
+	border-bottom-style:solid;
+	border-bottom-width:1;
+	border-bottom-color:black;
+}
+.olul2{
+	border-top-style:solid;
+	border-top-width:1;
+	border-top-color:black;
+	border-bottom-style:double;
+	border-bottom-width:3;
+	border-bottom-color:black;
+}
+.ol2ul2{
+	border-top-style:double;
+	border-top-width:3;
+	border-top-color:black;
+	border-bottom-style:double;
+	border-bottom-width:3;
+	border-bottom-color:black;
+}
+.olul{
+	border-top-style:solid;
+	border-top-width:1;
+	border-top-color:black;
+	border-bottom-style:solid;
+	border-bottom-width:1;
+	border-bottom-color:black;
+	background: none;
+}
+/* Styles for scrollable tables */
+.tableContainer {
+	position: relative;	/* to capture the absolutely positioned table header */
+	padding-top: 22px;	/* space for the column heads */
+	margin: 0 auto;
+	width: auto;
+	}
+
+/* this enables the table to scroll without scrolling the page */
+.innerFrame {
+	padding-right: 18px;/* space for the scrollbar */
+    /*overflow: hidden;		
+	overflow-y: scroll;	*/
+	height: 500px;		/* height is required */
+	}
+
+/* position the row of column heads above the table */
+.tableContainer thead tr {
+	/* position: absolute;	throws the header out of the table */
+	top: 0px;
+	left: 0px;			
+	border-right: solid 1pt #d0d0d0;
+	}
+.tableContainer table{
+	border-right: solid 1px #d0d0d0;
+	border-bottom: solid 1px #d0d0d0;
+	border-left: solid 0px black;
+	border-top: solid 0px black;
+	width: 100%;
+	border-collapse:separate;
+	}
+	
+.tableContainer thead td	{
+	/*border-bottom: solid 1pt #d0d0d0;*/
+	}
+	
+.tableContainer td	{
+	/*border-top: solid 1px #d0d0d0;
+	border-left: solid 1px #d0d0d0;
+	border-bottom: solid 0pt black;
+	border-right: solid 0px black;*/
+	}
+.titletable	{ 
+	font-size: 9pt; 
+	font-family: Verdana, Sans Serif, Helvetica; 
+	font-weight: bold; 
+	border-left: 1px solid #F8F8F8; 
+	border-top: 1px solid #F8F8F8; 
+	border-right: 1px solid #909090; 
+	border-bottom: 1px solid #909090; 
+	background-color:#B4CFE0; 
+	height:22 
+}
+.matrix_cell {
+	width:50px;
+}
+.typeborder {
+	display: inline-block;
+	font-family:'Arial';
+	font-size: 16pt; 
+	font-weight: bold;
+	border-style:solid;
+	border-width:2;
+	border-color:black;
+	padding: 2px;
+}
+.hidethead {
+	font-size: 9pt; 
+	font-family: Verdana, Sans Serif, Helvetica; 
+}
+.hidethead thead{
+	display:none
+}
+
+textarea	{ font-size: 9pt; font-family:Courier New, "monospace"; }
+input		{ font-size: 9pt;}
+select		{ font-size: 9pt;}
+#_prigroupheader b{
+	display: flex;
+    align-items: center;
+}
+
+#_prigroupheader:not([align="left"]):not([dir="rtl"]) b{
+	flex-direction: row-reverse;
+}
+.qrcode 
+{
+	width: 200px;
+	height:200px;
+	right: 0;
+    float: right;
+	page-break-inside: avoid;
+}
+-->
+</style>
+
+<style type="text/css" media="print">
+<!--
+._pri_avoid_breaks tr{
+	page-break-inside: avoid;
+}
+.rulesgroups  td {
+	border-left: 1px solid  black;
+	border-right: 1px solid  black;
+}
+.rulesgroups .ColTitlesLine td {
+	border: 1px solid  black;
+}
+.rulesall td {
+	border-width: 1px;
+	border-style: solid;
+	border-color: black;
+}
+a { color: #000000; text-decoration: none }
+.innerFrame {overflow: visible;}
+.tableContainer {padding-top: 0px;}
+.tableContainer thead tr {position: static;}
+.tableContainer td	{
+	border-top: solid 1px black;
+	border-left: solid 1px black;
+	border-bottom: solid 1pt black;
+	border-right: solid 1px black;
+}
+.tableContainer table{
+	border-right: solid 1px black;
+	border-bottom: solid 1px black;
+	border-left: solid 1px black;
+	border-top: solid 1px black;
+	border-collapse:collapse;
+}
+#_reporticons {
+	display:none;
+}
+#_divscr1 {
+    height: auto !important;
+}
+#_divscr1 table {
+    width: 100% !important;
+}
+
+-->
+</style>
+<!--
+<div name='barcode' style="visibility:hidden;position:absolute;font-family:Free 3 of 9; font-size:1">*0*</div>
+-->
+<SCRIPT LANGUAGE=javascript TYPE="text/javascript">
+window.onload = function() {
+    if(window.location.search.indexOf('print=1') >= 0)
+        window.print();
+}
+</SCRIPT>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="2" leftmargin="1" rightmargin="1">
+<form method="POST" name="priform">
+
+<div align='center' dir='rtl'
+style='position:absolute; height:44em; left:0;
+writing-mode:tb-rl;font-family:Arial;font-size:7pt'>
+פריוריטי סופטוור בע"מ - © Priority הופק באמצעות
+</div>
+
+<table width="100%" border=0 cellspacing=0  cellpadding=10 >
+<tr><td>
+
+<table width="100%" border=0 cellspacing=0 cellpadding=0>
+<thead>
+<tr>
+<td width="100%"  valign="top">
+<table border=0 width="100%"><tr><td>
+    <TABLE border=1 cellspacing=0 cellpadding=4 rules="all" width="100%"   bordercolor="#dde2e6" class="rulesall"    >
+<caption></caption><thead id='_title'>
+<tr class='ColTitlesLine'>
+	<td align="center"  bgcolor="#e3eeff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d"><b>משקל אבנים</b></font></td>
+	<td align="center"  bgcolor="#e3eeff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d"><b>משקל</b></font></td>
+	<td align="center"  bgcolor="#e3eeff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d"><b>מחיר</b></font></td>
+	<td align="center"  bgcolor="#e3eeff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d"><b>תאור מוצר</b></font></td>
+	<td align="center"  bgcolor="#e3eeff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d"><b>מק"ט</b></font></td>
+	<td align="center"  bgcolor="#e3eeff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d"><b>תמונה</b></font></td>
+	<td align="center"  bgcolor="#e3eeff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d"><b>תאור משפחה</b></font></td>
+</tr>
+</thead>
+<tr class='FirstDataLine'>
+	<td id="_prigroupheader" align="right" colspan="7" bgcolor="#f2f2f2" dir="rtl"  nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><b>מחסן:&nbsp;<span dir="ltr">130</span>, תאור מחסן:&nbsp;נתניה -קניון השרון</b></font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">הנחת שוטרים</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">350</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">הנחת שוטר - משביר</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">50</span></font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">RK-Jeweleryset1</span></font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">5275185</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">עגיל מתנה</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">50</span></font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">RK-Jeweleryset2</span></font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">5275286</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">50</span></font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">RK-Jeweleryset2</span></font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">5275287</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">150</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">תו ייצוגית</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">550</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">שובר תביעה יצוגית</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">סט תיק ומגבת</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">60137</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">מתנות</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">4</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">מטלית לניקוי תכשיט</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">60653</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">מטליות לניקוי תכשיטים</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">60654</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">פלאסק ממותג</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">60916</span></font></td>
+	<td align="left"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d"><a href="../assets/img/__________.jpg"><img border="0" width="100" height="50" alt="תמונה" src="../assets/img/__________.jpg" loading="lazy" decoding="async"></a></font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">6</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">מנטלית לניקוי תכשיטים מתנה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">66209</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">46</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">תיק מארז מתנה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">66550</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">מתנות</font></td>
+</tr>
+<tr >
+	<td align="right" colspan="3" bgcolor="#f5f9ff"   nowrap id='_prisubtotal'><font style="font-family: 'Arial'" size="2" color="#17223d"><b><span dir="ltr">360</span></b></font></td>
+	<td align="right" colspan="4" bgcolor="#f5f9ff" dir="rtl"  nowrap id='_prisubtotal'><font style="font-family: 'Arial'" size="2" color="#17223d"><b>סה"כ למחסן: 130</b></font></td>
+</tr>
+</TABLE>
+
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+<table border=0 width="100%"><tr><td dir="rtl">
+<font face="Arial" color="#ff0000" size="3">
+    
+</font></td></tr></table>
+    
+</form>
+</BODY>
+</HTML>

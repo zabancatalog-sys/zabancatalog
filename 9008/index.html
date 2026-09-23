@@ -1,0 +1,2110 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0016)http://127.0.0.1 -->
+<HTML>
+<HEAD>
+<meta http-equiv='X-UA-Compatible' content='IE=edge'/>
+<TITLE>מלאי נוכחי לפי מחסן - הנהלה</TITLE>
+<meta name="GENERATOR" content="Priority 25.0 - Enterprise Management System - Copyright © Priority Software Ltd. 1986-2026">
+<meta http-equiv="Content-Type" content="text/html;  charset=utf-8">
+<link rel="icon" href="data:,">
+<SCRIPT LANGUAGE=javascript TYPE="text/javascript">
+<!--
+<!--| Priority Script |-->
+<!--| Priority Report Options |-->
+function initform() {
+    <!--| Priority Defaults |-->
+	return true;
+}
+function validate(form) {
+	return true;
+}
+//-->
+</SCRIPT>
+<style>
+<!--
+@font-face {
+    font-family: 'Heebo';
+	src: url(about:blank) format('woff'),
+		 url(about:blank) format('woff2');
+    src: url(about:blank)  format("eot"),
+		 url(about:blank) format('embedded-opentype');
+}
+
+
+@font-face {
+    font-family: 'Bree Serif';
+	src: url(about:blank) format('woff'),
+		 url(about:blank) format('woff2');
+	src: url(about:blank) format("eot"),
+		 url(about:blank) format('embedded-opentype');
+}
+
+
+body	{
+	font-family:'Arial';
+	font-size: 12pt; 
+}
+
+
+tr font[style*="Bree Serif"] {
+	font-family: 'Bree Serif', serif !important;
+}
+tr[dir="rtl"] font[style*="Bree Serif"] {
+	font-family: "Heebo" !important;
+}
+
+/* a	{ color: #305774; text-decoration: underline }
+a:hover { color: #000000; } */
+a	{ color: #00adee;  text-decoration: underline;}
+.ColTitlesLine td a{
+	text-decoration: none;
+}
+.datafont {
+	font-size: 9pt; 
+	font-family: Verdana, Sans Serif, Helvetica; 
+}
+.totalfont {
+	font-size: 9pt; 
+	font-family: Verdana, Sans Serif, Helvetica; 
+}
+.titlefont {
+	font-size: 9pt; 
+	font-family: Verdana, Sans Serif, Helvetica; 
+	font-weight: bold; 
+}
+.groupfont {
+	font-size: 9pt; 
+	font-family: Verdana, Sans Serif, Helvetica; 
+}
+.SmallDataFont {
+	font-size: 8pt; 
+	font-family:Arial;
+}
+#a { text-decoration:none; color:#000080; }
+#a:hover {text-decoration:underline; color:"#0000ff"}
+.DOCNO a{
+	text-decoration:underline; color:"#000000";
+}
+p {margin:0cm;font-size:10.0pt;font-family:'Arial';}
+thead {display: table-header-group}
+tfoot {display: table-footer-group}
+table {border-collapse:collapse}
+/*
+td {mso-number-format:\@} 
+*/
+.Editcbtn { height:18; width:22;
+            BORDER-LEFT: threedface 1px solid;
+            BORDER-RIGHT: threedface 1px solid;
+            BORDER-TOP: threedface 1px solid;
+            BORDER-BOTTOM: threedface 1px solid; }
+.titletbl { 
+	height:40px;
+	box-sizing:border-box;
+	 -moz-box-sizing:border-box; /* Firefox */
+	 -webkit-box-sizing:border-box; /* Safari */
+}
+.tabstbl {
+	height:30px;
+}
+.buttonstbl {
+	height:19px;
+	table-layout: fixed;
+}
+.buttonstbl a { text-decoration:none; color:#000080; }
+.dbframe {
+	border-style:solid;
+	border-width:1;
+	border-color:#808080;
+	margin-left:3px;
+	margin-right:0px;
+	margin-top:3px;
+	margin-bottom:0px;
+	display:none;
+}
+.titlebar{
+	background-image:url(../assets/img/titlebar40.jpg);
+	padding-left:5px;
+	padding-right:5px;
+	padding-top:4px;
+	padding-bottom:4px;
+	valign:center;
+}
+.titlebar img{
+	margin-left:2px;
+	margin-right:2px;
+}
+.lefton a { text-decoration:none; color:#000080; }
+.lefton {
+	background-image:url(../assets/img/left-on30.png);
+	background-repeat:no-repeat;
+	padding-left:10px;
+	padding-right:0px;
+	vertical-align:top;
+	cursor:pointer;
+}
+.leftoff a{ text-decoration:none; color:#000080; }
+.leftoff {
+	background-image:url(../assets/img/left-off30.png);
+	background-repeat:no-repeat;
+	padding-left:10px;
+	padding-right:0px;
+	vertical-align:top;
+	cursor:pointer;
+}
+.leftonmiddleoff a{ text-decoration:none; color:#000080; }
+.leftonmiddleoff {
+	background-image:url(../assets/img/left-on-middle-off30.png);
+	background-repeat:no-repeat;
+	padding-left:20px;
+	padding-right:0px;
+	vertical-align:top;
+	cursor:pointer;
+}
+.middleon a{ text-decoration:none; color:#000080; }
+.middleon {
+	background-image:url(../assets/img/middle-on30.png);
+	background-repeat:no-repeat;
+	padding-left:20px;
+	padding-right:0px;
+	vertical-align:top;
+	cursor:pointer;
+}
+.middleoff a{ text-decoration:none; color:#000080; }
+.middleoff {
+	background-image:url(../assets/img/middle-off30.png);
+	background-repeat:no-repeat;
+	padding-left:20px;
+	padding-right:0px;
+	vertical-align:top;
+	cursor:pointer;
+}
+.righton a{ text-decoration:none; color:#000080; }
+.righton {
+	background-image:url(../assets/img/right-on30.png);
+	background-repeat:no-repeat;
+	width:10px;
+	vertical-align:top;
+}
+.rightoff a{ text-decoration:none; color:#000080; }
+.rightoff {
+	background-image:url(../assets/img/right-off30.png);
+	background-repeat:no-repeat;
+	width:10px;
+	vertical-align:top;
+}
+.indent {
+	padding-left:25px;
+	padding-right:25px;
+}
+.newpage {
+	page-break-before:always;
+}
+.fs {
+	background-color:white;
+	border-collapse:separate;
+}
+.bttn1,.bttn2,.bttn3,.bttn4,.bttn5,.bttn6,.bttn7,.bttn8 {
+	background-image:url(../assets/img/bttnm.bmp);
+	width:70px;
+	cursor:pointer;
+	vertical-align:top
+}
+.disabled_bttn {
+	background-image:url(../assets/img/bttnm-gray.bmp);
+	width:70px;
+	cursor:default;
+}
+.disabled_bttn font {
+	color:#404040;
+}
+.rightbtn{
+	background-image:url(../assets/img/bttnr.gif);
+	background-repeat:no-repeat;
+	width:15px;
+	cursor:default;
+}
+.disabled_rightbtn{
+	background-image:url(../assets/img/bttnr-gray.gif);
+	width:15px;
+	cursor:default;
+}
+.leftbtn{
+	background-image:url(../assets/img/bttnl.gif);
+	background-repeat:no-repeat;
+	width:15px;
+	cursor:default;
+}
+.disabled_leftbtn{
+	background-image:url(../assets/img/bttnl-gray.gif);
+	width:15px;
+	cursor:default;
+}
+.ol2{
+	border-top-style:double;
+	border-top-width:3;
+	border-top-color:black;
+}
+.ol{
+	border-top-style:solid;
+	border-top-width:1;
+	border-top-color:black;
+}
+.ul2{
+	border-bottom-style:double;
+	border-bottom-width:3;
+	border-bottom-color:black;
+}
+.ul{
+	border-bottom-style:solid;
+	border-bottom-width:1;
+	border-bottom-color:black;
+}
+.olul2{
+	border-top-style:solid;
+	border-top-width:1;
+	border-top-color:black;
+	border-bottom-style:double;
+	border-bottom-width:3;
+	border-bottom-color:black;
+}
+.ol2ul2{
+	border-top-style:double;
+	border-top-width:3;
+	border-top-color:black;
+	border-bottom-style:double;
+	border-bottom-width:3;
+	border-bottom-color:black;
+}
+.olul{
+	border-top-style:solid;
+	border-top-width:1;
+	border-top-color:black;
+	border-bottom-style:solid;
+	border-bottom-width:1;
+	border-bottom-color:black;
+	background: none;
+}
+/* Styles for scrollable tables */
+.tableContainer {
+	position: relative;	/* to capture the absolutely positioned table header */
+	padding-top: 22px;	/* space for the column heads */
+	margin: 0 auto;
+	width: auto;
+	}
+
+/* this enables the table to scroll without scrolling the page */
+.innerFrame {
+	padding-right: 18px;/* space for the scrollbar */
+    /*overflow: hidden;		
+	overflow-y: scroll;	*/
+	height: 500px;		/* height is required */
+	}
+
+/* position the row of column heads above the table */
+.tableContainer thead tr {
+	/* position: absolute;	throws the header out of the table */
+	top: 0px;
+	left: 0px;			
+	border-right: solid 1pt #d0d0d0;
+	}
+.tableContainer table{
+	border-right: solid 1px #d0d0d0;
+	border-bottom: solid 1px #d0d0d0;
+	border-left: solid 0px black;
+	border-top: solid 0px black;
+	width: 100%;
+	border-collapse:separate;
+	}
+	
+.tableContainer thead td	{
+	/*border-bottom: solid 1pt #d0d0d0;*/
+	}
+	
+.tableContainer td	{
+	/*border-top: solid 1px #d0d0d0;
+	border-left: solid 1px #d0d0d0;
+	border-bottom: solid 0pt black;
+	border-right: solid 0px black;*/
+	}
+.titletable	{ 
+	font-size: 9pt; 
+	font-family: Verdana, Sans Serif, Helvetica; 
+	font-weight: bold; 
+	border-left: 1px solid #F8F8F8; 
+	border-top: 1px solid #F8F8F8; 
+	border-right: 1px solid #909090; 
+	border-bottom: 1px solid #909090; 
+	background-color:#B4CFE0; 
+	height:22 
+}
+.matrix_cell {
+	width:50px;
+}
+.typeborder {
+	display: inline-block;
+	font-family:'Arial';
+	font-size: 16pt; 
+	font-weight: bold;
+	border-style:solid;
+	border-width:2;
+	border-color:black;
+	padding: 2px;
+}
+.hidethead {
+	font-size: 9pt; 
+	font-family: Verdana, Sans Serif, Helvetica; 
+}
+.hidethead thead{
+	display:none
+}
+
+textarea	{ font-size: 9pt; font-family:Courier New, "monospace"; }
+input		{ font-size: 9pt;}
+select		{ font-size: 9pt;}
+#_prigroupheader b{
+	display: flex;
+    align-items: center;
+}
+
+#_prigroupheader:not([align="left"]):not([dir="rtl"]) b{
+	flex-direction: row-reverse;
+}
+.qrcode 
+{
+	width: 200px;
+	height:200px;
+	right: 0;
+    float: right;
+	page-break-inside: avoid;
+}
+-->
+</style>
+
+<style type="text/css" media="print">
+<!--
+._pri_avoid_breaks tr{
+	page-break-inside: avoid;
+}
+.rulesgroups  td {
+	border-left: 1px solid  black;
+	border-right: 1px solid  black;
+}
+.rulesgroups .ColTitlesLine td {
+	border: 1px solid  black;
+}
+.rulesall td {
+	border-width: 1px;
+	border-style: solid;
+	border-color: black;
+}
+a { color: #000000; text-decoration: none }
+.innerFrame {overflow: visible;}
+.tableContainer {padding-top: 0px;}
+.tableContainer thead tr {position: static;}
+.tableContainer td	{
+	border-top: solid 1px black;
+	border-left: solid 1px black;
+	border-bottom: solid 1pt black;
+	border-right: solid 1px black;
+}
+.tableContainer table{
+	border-right: solid 1px black;
+	border-bottom: solid 1px black;
+	border-left: solid 1px black;
+	border-top: solid 1px black;
+	border-collapse:collapse;
+}
+#_reporticons {
+	display:none;
+}
+#_divscr1 {
+    height: auto !important;
+}
+#_divscr1 table {
+    width: 100% !important;
+}
+
+-->
+</style>
+<!--
+<div name='barcode' style="visibility:hidden;position:absolute;font-family:Free 3 of 9; font-size:1">*0*</div>
+-->
+<SCRIPT LANGUAGE=javascript TYPE="text/javascript">
+window.onload = function() {
+    if(window.location.search.indexOf('print=1') >= 0)
+        window.print();
+}
+</SCRIPT>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="2" leftmargin="1" rightmargin="1">
+<form method="POST" name="priform">
+
+<div align='center' dir='rtl'
+style='position:absolute; height:44em; left:0;
+writing-mode:tb-rl;font-family:Arial;font-size:7pt'>
+פריוריטי סופטוור בע"מ - © Priority הופק באמצעות
+</div>
+
+<table width="100%" border=0 cellspacing=0  cellpadding=10 >
+<tr><td>
+
+<table width="100%" border=0 cellspacing=0 cellpadding=0>
+<thead>
+<tr>
+<td width="100%"  valign="top">
+<table border=0 width="100%"><tr><td>
+    <TABLE border=1 cellspacing=0 cellpadding=4 rules="all" width="100%"   bordercolor="#dde2e6" class="rulesall"    >
+<caption></caption><thead id='_title'>
+<tr class='ColTitlesLine'>
+	<td align="center"  bgcolor="#e3eeff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d"><b>צבע</b></font></td>
+	<td align="center"  bgcolor="#e3eeff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d"><b>משקל אבנים</b></font></td>
+	<td align="center"  bgcolor="#e3eeff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d"><b>משקל</b></font></td>
+	<td align="center"  bgcolor="#e3eeff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d"><b>מחיר</b></font></td>
+	<td align="center"  bgcolor="#e3eeff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d"><b>תאור מוצר</b></font></td>
+	<td align="center"  bgcolor="#e3eeff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d"><b>מק"ט</b></font></td>
+	<td align="center"  bgcolor="#e3eeff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d"><b>תמונה</b></font></td>
+	<td align="center"  bgcolor="#e3eeff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d"><b>תאור משפחה</b></font></td>
+</tr>
+</thead>
+<tr class='FirstDataLine'>
+	<td id="_prigroupheader" align="right" colspan="8" bgcolor="#f2f2f2" dir="rtl"  nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><b>מחסן:&nbsp;<span dir="ltr">9008</span>, תאור מחסן:&nbsp;חוסרים 2012 דוכנים</b></font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">759</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">שעון אן קליין</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1011376</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">שעון</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">99</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">שעון 264</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1036756</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">99</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">שעון 264</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1036832</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">216</span></font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">SS9992XDSPW</span></font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1038470</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><a href="https://iis.zaban-bechor.co.il/click2sign/primail\pics\SS9992XDSPW.Jpg"><img border="0" width="100" height="50" alt="תמונה" src="https://iis.zaban-bechor.co.il/click2sign/primail\pics\SS9992XDSPW.Jpg"></a></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">צמיד כסף</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">216</span></font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">SS9991XDSPW</span></font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1038520</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><a href="https://iis.zaban-bechor.co.il/click2sign/primail\pics\SS9991XDSPW.Jpg"><img border="0" width="100" height="50" alt="תמונה" src="https://iis.zaban-bechor.co.il/click2sign/primail\pics\SS9991XDSPW.Jpg"></a></font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">129</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">טבעת כסף</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1039020</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">טבעת כסף</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">129</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">טבעת כסף</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1039039</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">129</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">טבעת כסף</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1039080</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">365</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">רביד כסף</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1039465</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><a href="P:\system\images\coral\images\NS92-SS5.Jpg"><img border="0" width="100" height="50" alt="תמונה" src="P:\system\images\coral\images\NS92-SS5.Jpg"></a></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">רביד כסף</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">107</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">טבעת כסף</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1041770</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">טבעת כסף</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">118</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">רביד כסף</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1062285</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">רביד כסף</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">214</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">רביד פנינה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1066677</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">רביד פנינה</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">מבצעים ישנים</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1068547</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">מבצעים ישנים</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">מבצעים ישנים</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1068697</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">מבצעים ישנים</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1068899</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">679</span></font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">G73001</span></font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1071442</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">שעון</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2.40</span></font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">5,177</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">טבעת יהלום</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1087824</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">טבעת יהלום</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">H</span></font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">0.300</span></font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">250</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">עגיל זרקון</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1090795</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">עגיל זרקון</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">209</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">עגיל זהב</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1092371</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">עגיל זהב</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">480</span></font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">BEM118BD1A</span></font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1118997</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">שעון</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">515</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">שעון סווטצ'</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1128850</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1,346</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">שעון פרארי</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1135240</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">333</span></font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">LCF301B</span></font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1159809</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">264</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">עגיל זרקון</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1166532</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">עגיל זרקון</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2,091</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">שעון סייקו</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1166951</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">שעון</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2.20</span></font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">7,370</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">טבעת יהלום</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1175899</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">טבעת יהלום</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">H</span></font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">0.300</span></font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">34</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">מבצעים ישנים</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1176898</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">מבצעים ישנים</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">34</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">מבצעים ישנים</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1176900</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">34</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">מבצעים ישנים</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1176903</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">125</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">שעון עדי</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1177346</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">שעון</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2.97</span></font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">4,417</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">טבעת יהלום</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1191241</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">טבעת יהלום</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">I</span></font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">0.200</span></font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">152</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">עגיל פנינה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2008659</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">עגיל פנינה</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">518</span></font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">G3003A</span></font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2014679</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">שעון</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">650</span></font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">AD30340</span></font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2016749</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1,990</span></font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">CIAT060503L</span></font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2036783</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1,990</span></font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">CIAT060601W</span></font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2036784</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">120</span></font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">QQ1200</span></font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2037326</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">333</span></font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">DW90521</span></font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2037488</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2,631</span></font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">PRG500T7D</span></font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2038702</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">158</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">צמיד פנינה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2042545</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">צמיד פנינה</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">450</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">רביד פנינה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2046177</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">רביד פנינה</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">191</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">עגיל פנינה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2055070</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">עגיל פנינה</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">158</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">תליון פנינה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2059284</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">תליון פנינה</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">158</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">תליון פנינה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2059302</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">KICK</span></font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2061415</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">שעון</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">158</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">תליון פנינה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2064729</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">תליון פנינה</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">158</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">תליון פנינה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2064807</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">158</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">תליון פנינה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2064832</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">מתנה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2068621</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">מתנה</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">מתנה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2068622</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">מתנה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2068623</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">מתנה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2068624</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1,190</span></font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">HP3573L1502</span></font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2071926</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">שעון</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1,490</span></font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">CIEP579059A</span></font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2073075</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">333</span></font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">MTP1306D7A</span></font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2074048</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">896</span></font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">NY4519</span></font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2079842</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2.20</span></font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">7,020</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">תליון יהלום</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2083939</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">תליון יהלום</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">H</span></font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">0.390</span></font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">747</span></font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">ES2580</span></font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2084161</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">שעון</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1,993</span></font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">NY4913</span></font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2084565</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">991</span></font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">PS2209</span></font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2090532</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2,487</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">שעון סייקו</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2095595</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">195</span></font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">MTP1302D1A1</span></font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2098372</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">843</span></font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">PS20541 WHITE</span></font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2101827</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">797</span></font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">NY8234</span></font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2102109</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">590</span></font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">AD22900</span></font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2104709</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">170</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">עגיל פנינה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2113948</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">עגיל פנינה</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">170</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">עגיל פנינה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2114000</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">330</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">עגיל פנינה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2114151</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">230</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">עגיל פנינה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2114811</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2,986</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">שעון סייקו</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2115111</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">שעון</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">30</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">צמיד פנינה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2116755</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">צמיד פנינה</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">30</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">צמיד פנינה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2116856</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">30</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">צמיד פנינה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2117046</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">30</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">צמיד פנינה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2117132</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">30</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">צמיד פנינה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2117150</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">797</span></font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">NY8284</span></font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2118970</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">שעון</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">199</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">שעון 264</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2119479</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">199</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">שעון 264</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2119540</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">199</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">שעון 264</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2119622</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">199</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">שעון 264</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2119627</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">199</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">שעון 264</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2119827</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">337</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">עגיל זרקון</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2120782</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">עגיל זרקון</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">920</span></font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">EFR510L5A</span></font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2123031</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">שעון</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1,688</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">שעון סייקו</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2131384</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">163</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">עגיל פנינה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2134294</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">עגיל פנינה</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">320</span></font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">AD20920</span></font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2137026</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">שעון</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">506</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">עגיל זהב</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2137523</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">עגיל זהב</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">991</span></font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">PS3145</span></font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2138131</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">שעון</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">199</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">שעון 264</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2142866</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">199</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">שעון 264</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2142993</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">25</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">צמיד פנינה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2143504</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">צמיד פנינה</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">25</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">צמיד פנינה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2143544</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">25</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">צמיד פנינה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2146548</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">25</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">צמיד פנינה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2146549</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">25</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">צמיד פנינה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2146781</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">25</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">צמיד פנינה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2146884</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">798</span></font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">R7251160575</span></font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2150173</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">שעון</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">199</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">שעון 264</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2151222</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2.44</span></font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">5,367</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">טבעת יהלום</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2158950</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">טבעת יהלום</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1.520</span></font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">I</span></font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">0.070</span></font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1,198</span></font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">R7253137615</span></font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2159539</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">שעון</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1,196</span></font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">JR1266</span></font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2160180</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">163</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">עגיל פנינה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2160557</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">עגיל פנינה</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">25</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">צמיד פנינה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2160739</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">צמיד פנינה</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">150</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">צמיד פנינה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2163178</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">150</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">צמיד פנינה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2163245</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">590</span></font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">AD39120</span></font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2166519</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">שעון</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1,189</span></font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">0116083P11</span></font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2170492</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">212</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">רביד פנינה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2171034</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">רביד פנינה</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">150</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">רביד פנינה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2172995</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">150</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">רביד פנינה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2173071</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">150</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">רביד פנינה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2173421</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">150</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">רביד פנינה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2173489</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">150</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">רביד פנינה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2173492</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">150</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">רביד פנינה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2173619</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">150</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">רביד פנינה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2173634</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1,694</span></font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">NY8499</span></font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2174549</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">שעון</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">996</span></font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">NY4520</span></font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2174630</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">951</span></font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">PS3120B</span></font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2177512</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">מתנה שובר</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2182521</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">מתנה שובר</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">409</span></font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">AQS800WD1E</span></font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2190327</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">שעון</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">25</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">צמיד פנינה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2190632</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">צמיד פנינה</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1,395</span></font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">NY8584</span></font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2190737</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">שעון</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">199</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">שעון 264</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2192874</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">199</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">שעון 264</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2192919</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">199</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">שעון 264</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2192950</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">199</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">שעון 264</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2193011</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">199</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">שעון 264</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2193065</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">199</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">שעון 264</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2193092</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1,395</span></font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">NY8397</span></font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2195643</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">150</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">רביד פנינה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2201808</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">רביד פנינה</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">150</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">רביד פנינה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2201894</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">150</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">רביד פנינה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2201908</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">150</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">רביד פנינה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2201912</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">150</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">רביד פנינה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2201988</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">150</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">רביד פנינה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2202256</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1,019</span></font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">EFB100D1A</span></font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2202698</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">שעון</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">מתנה שובר</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2207275</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">מתנה שובר</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">מתנה שובר</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2207276</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">354</span></font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">DW90521</span></font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2214418</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">שעון</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1.45</span></font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1,120</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">עגיל פנינה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2215774</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">עגיל זרקון</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1,198</span></font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">R7253137615</span></font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2216018</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">שעון</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1,096</span></font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">ES3050</span></font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2216518</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">1,299</span></font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">PARIS XS</span></font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2218464</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">506</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">עגיל זרקון</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2221801</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">עגיל זרקון</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">27</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">צמיד פנינה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2223746</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">צמיד פנינה</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">מתנה שובר</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2233776</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">מתנה שובר</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">מתנה שובר</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2233777</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">מתנה שובר</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2234744</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">מתנה שובר</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2234746</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">מתנה שובר</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2234758</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">מתנה שובר</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2234760</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">משקפיים</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">2264556</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">קו קופה</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">220</span></font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">AD42400</span></font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">242070</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">שעון</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">0.63</span></font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">52</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">"קטל"" רה""ש-יודיק"</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">683006</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><a href="C:\Program Files\Common Files\LogiShrd\LWSPlugins\LWS\Applets\HelpMain\launchers"><img border="0" width="100" height="50" alt="תמונה" src="C:\Program Files\Common Files\LogiShrd\LWSPlugins\LWS\Applets\HelpMain\launchers"></a></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">תליון זהב</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">772</span></font></td>
+	<td align="right"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">EF507D5A</span></font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">919925</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">שעון</font></td>
+</tr>
+<tr >
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">158</span></font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">תליון פנינה</font></td>
+	<td align="left"  bgcolor="#ffffff"   nowrap><font style="font-family: 'Arial'" size="2" color="#17223d"><span dir="ltr">n</span></font></td>
+	<td align="left"  bgcolor="#ffffff"  ><font style="font-family: 'Arial'" size="2" color="#17223d">&nbsp;</font></td>
+	<td align="right"  bgcolor="#ffffff" dir="rtl" ><font style="font-family: 'Arial'" size="2" color="#17223d">תליון פנינה</font></td>
+</tr>
+<tr >
+	<td align="right" colspan="2" bgcolor="#f5f9ff"   nowrap id='_prisubtotal'><font style="font-family: 'Arial'" size="2" color="#17223d"><b><span dir="ltr">2.780</span></b></font></td>
+	<td align="right"  bgcolor="#f5f9ff"   nowrap id='_prisubtotal'><font style="font-family: 'Arial'" size="2" color="#17223d"><b><span dir="ltr">14.29</span></b></font></td>
+	<td align="right"  bgcolor="#f5f9ff"   nowrap id='_prisubtotal'><font style="font-family: 'Arial'" size="2" color="#17223d"><b><span dir="ltr">95,851</span></b></font></td>
+	<td align="right" colspan="4" bgcolor="#f5f9ff" dir="rtl"  nowrap id='_prisubtotal'><font style="font-family: 'Arial'" size="2" color="#17223d"><b>סה"כ למחסן: 9008</b></font></td>
+</tr>
+</TABLE>
+
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+<table border=0 width="100%"><tr><td dir="rtl">
+<font face="Arial" color="#ff0000" size="3">
+    
+</font></td></tr></table>
+    
+</form>
+</BODY>
+</HTML>
