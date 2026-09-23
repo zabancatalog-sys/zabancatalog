@@ -82,7 +82,13 @@ try {
             if (Test-Path -LiteralPath $r) { $buildArgs += @('--img-root', $r) }
             else { Write-Log "תיקיית תמונות לא קיימת, מדולגת: $r" 'WARN' }
         }
-        Invoke-Step 'בניית האתר' { python @buildArgs }
+        # לא Invoke-Step: הוא אוסף את כל הפלט ורושם אותו רק בסוף, וריצה
+        # ראשונה נמשכת שעות. ה--u מכבה באפרינג ב-Python כך שכל סניף
+        # מופיע ביומן ברגע שהוא נבנה, ואפשר לראות התקדמות בזמן אמת
+        Write-Log 'בניית האתר'
+        $buildArgs = @('-u') + $buildArgs
+        python @buildArgs 2>&1 | ForEach-Object { Write-Log "    $_" 'OUT' }
+        if ($LASTEXITCODE -ne 0) { throw "הבנייה נכשלה (exit $LASTEXITCODE)" }
 
         # בלם נפח: GitHub Pages מפסיק להגיש אתר שחורג מ-1GB. עדיף להשאיר
         # את הגרסה הקודמת באוויר מאשר לדחוף גרסה שתשבור את האתר
