@@ -82,13 +82,21 @@ try {
             if (Test-Path -LiteralPath $r) { $buildArgs += @('--img-root', $r) }
             else { Write-Log "תיקיית תמונות לא קיימת, מדולגת: $r" 'WARN' }
         }
-        # לא Invoke-Step: הוא אוסף את כל הפלט ורושם אותו רק בסוף, וריצה
-        # ראשונה נמשכת שעות. ה--u מכבה באפרינג ב-Python כך שכל סניף
-        # מופיע ביומן ברגע שהוא נבנה, ואפשר לראות התקדמות בזמן אמת
-        Write-Log 'בניית האתר'
+        # הפלט מופנה לקובץ ולא לצינור. צינור אל ForEach-Object נראה כמו
+        # דרך נוחה לרשום התקדמות, אבל אם PowerShell לא מרוקן אותו מספיק
+        # מהר מאגר ה-pipe מתמלא ו-print() ב-Python נחסם לנצח — הבנייה
+        # קופאת בלי CPU ובלי שורה אחת ביומן. קובץ לא נחסם, ואפשר לעקוב
+        # אחריו בזמן אמת עם Get-Content -Wait
+        $buildLog = Join-Path $LogDir ('build-{0:yyyy-MM-dd-HHmm}.log' -f (Get-Date))
+        Write-Log "בניית האתר (פלט מלא: $buildLog)"
         $buildArgs = @('-u') + $buildArgs
-        python @buildArgs 2>&1 | ForEach-Object { Write-Log "    $_" 'OUT' }
-        if ($LASTEXITCODE -ne 0) { throw "הבנייה נכשלה (exit $LASTEXITCODE)" }
+        & python @buildArgs *> $buildLog
+        $buildCode = $LASTEXITCODE
+        if (Test-Path -LiteralPath $buildLog) {
+            Get-Content -LiteralPath $buildLog -Encoding UTF8 |
+                ForEach-Object { Write-Log "    $_" 'OUT' }
+        }
+        if ($buildCode -ne 0) { throw "הבנייה נכשלה (exit $buildCode)" }
 
         # בלם נפח: GitHub Pages מפסיק להגיש אתר שחורג מ-1GB. עדיף להשאיר
         # את הגרסה הקודמת באוויר מאשר לדחוף גרסה שתשבור את האתר
