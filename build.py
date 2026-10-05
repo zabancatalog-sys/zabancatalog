@@ -486,12 +486,8 @@ def convert(src_path, out_dir, store, roots, opts):
 def build_menu(entries):
     cards = []
     for name, info in entries:
-        label = htmlmod.escape(info['title']) if info['title'] else '&nbsp;'
-        cards.append(
-            '    <a class="card" href="./' + htmlmod.escape(name) + '/">'
-            '<span class="num">' + htmlmod.escape(name) + '</span>'
-            '<span class="ttl">' + label + '</span>'
-            '<span class="meta">' + str(info['images']) + ' תמונות</span></a>')
+        cards.append('    <a class="card" href="./' + htmlmod.escape(name) + '/">' +
+                     htmlmod.escape(name) + '</a>')
     return '''<!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
@@ -510,21 +506,19 @@ def build_menu(entries):
   .wrap { max-width:900px; margin:0 auto; }
   h1 { font-size:1.6rem; margin:0 0 4px; }
   p.sub { color:var(--muted); margin:0 0 28px; font-size:.95rem; }
-  .grid { display:grid; gap:12px; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); }
-  .card { display:flex; flex-direction:column; gap:6px; padding:16px 18px; text-decoration:none;
-          background:var(--card); border:1px solid var(--line); border-radius:10px; color:inherit;
-          transition:border-color .15s, transform .15s; }
+  .grid { display:grid; gap:10px; grid-template-columns:repeat(auto-fill,minmax(104px,1fr)); }
+  .card { display:flex; align-items:center; justify-content:center; min-height:62px;
+          padding:12px 10px; text-decoration:none; font-size:1.2rem; font-weight:600;
+          color:var(--accent); background:var(--card); border:1px solid var(--line);
+          border-radius:10px; transition:border-color .15s, transform .15s; }
   .card:hover { border-color:var(--accent); transform:translateY(-2px); }
-  .num { font-size:1.25rem; font-weight:600; color:var(--accent); }
-  .ttl { font-size:.85rem; color:var(--muted); line-height:1.4; }
-  .meta { font-size:.75rem; color:var(--muted); opacity:.8; }
   footer { margin-top:32px; color:var(--muted); font-size:.8rem; }
 </style>
 </head>
 <body>
   <div class="wrap">
     <h1>קטלוג סניפים</h1>
-    <p class="sub">''' + str(len(entries)) + ''' דוחות מלאי. בחר סניף:</p>
+    <p class="sub">''' + str(len(entries)) + ''' מחסנים. בחר מספר:</p>
     <div class="grid">
 ''' + chr(10).join(cards) + '''
     </div>

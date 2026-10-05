@@ -71,9 +71,17 @@ try {
 
     Push-Location -LiteralPath $Repo
     try {
-        # מיישרים קו עם המאגר המרוחק לפני הבנייה, כדי ש-push לא יידחה
+        # מיישרים קו עם המאגר המרוחק לפני הבנייה, כדי ש-push לא יידחה.
+        # reset --hard בודק כל אחד מ-67,000 הקבצים ולוקח כ-45 דקות, ולכן
+        # מריצים אותו רק כשבאמת יש פער מול המאגר המרוחק
         Invoke-Step 'git fetch' { git fetch --quiet origin }
-        Invoke-Step 'git reset' { git reset --quiet --hard origin/main }
+        $localHead  = (git rev-parse HEAD) -join ''
+        $remoteHead = (git rev-parse origin/main) -join ''
+        if ($localHead -ne $remoteHead) {
+            Invoke-Step 'git reset' { git reset --quiet --hard origin/main }
+        } else {
+            Write-Log "כבר מסונכרן עם origin/main ($($localHead.Substring(0,7))) — מדלגים על reset"
+        }
 
         $buildArgs = @((Join-Path $Repo 'build.py'), '--src', $Source,
                        '--max-edge', $MaxEdge, '--quality', $Quality)
@@ -91,6 +99,8 @@ try {
         $buildLog = Join-Path $LogDir "build-$stamp.log"
         $buildErr = Join-Path $LogDir "build-$stamp.err"
         Write-Log "בניית האתר (התקדמות: $buildLog)"
+        # בלי זה Python כותב ב-codepage של Windows והעברית ביומן יוצאת ג'יבריש
+        $env:PYTHONIOENCODING = 'utf-8'
         $exe = (Get-Command python -EA SilentlyContinue).Source
         if (-not $exe) { $exe = 'C:\Program Files\Python312\python.exe' }
         $quoted = @('-u') + ($buildArgs | ForEach-Object { '"' + $_ + '"' })
